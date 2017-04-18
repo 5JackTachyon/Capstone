@@ -43,6 +43,91 @@ function makeToxt(message, x, y, fontSize, fontFamily, fill, opacity) {
   return text
 }
 
+function removeElement(element) {
+  if (element.parentNode) {
+      element.parentNode.removeChild(element);
+  }
+}
+
+
 var hero = makeImoge("images/hero.gif", 150, 250, 50, 50, 1)
 
 var knight = makeImoge("images/Knight (2).gif", 500, 250, 50, 50, 1)
+var speech = makeRoct( 0, 350, 800, 50, "grey", 1)
+var monologue = makeToxt("", 370, 380, 30, "VT323", "red", 1)
+var used = false
+var choosed  = false
+var squireHealth = 5
+var heroHealth = 5
+time = 0
+
+function timerIncrease(){
+
+    time++
+
+
+  setTimeout(timerIncrease, 50)
+}
+setTimeout(timerIncrease, 50)
+
+
+
+function heroSlash(){
+  if(used == false && time > 5){
+    squireHealth = squireHealth - 2
+    removeElement(monologue)
+    monologue = makeToxt("The squire took 2 damage, he has 3 health left", 0, 380, 30, "VT323", "red", 1)
+    used = true
+    time = 0
+  }
+
+}
+
+function heroChoosed(){
+  if(choosed == true && time > 5){
+    removeElement(monologue)
+    monologue = makeToxt("The hero is dazed and cannot attack", 0, 380, 30, "VT323", "red", 1)
+    choosed = false
+    time = 0
+  }
+}
+
+function squireChoose(){
+  if(used == true && choosed == false && time > 5){
+    if(randomNumberGenerator(1, 2) == 1)
+    squireUppercut()
+    time = 0
+  }
+  if(randomNumberGenerator(1, 2) == 2 && time > 5){
+    squireCopy()
+    time = 0
+  }
+}
+
+function squireUppercut(){
+  if(used == true && choosed == false && time > 5){
+    heroHealth = heroHealth - 1
+    removeElement(monologue)
+    monologue = makeToxt("Fourthwind took 1 damage, and he is dazed", 0, 380, 30, "VT323", "red", 1)
+    choosed == true
+    time =  0
+  }
+}
+
+function squireCopy(){
+  if(used == true && choosed == false && time > 5){
+    herohealth = heroHealth - 2
+    removeElement(monologue)
+    monologue = makeToxt("The squire stole Fourthwind's move Slash, and used it against him", 0, 380, 30, "VT323", "red", 1)
+    used == false
+    time  = 0
+  }
+}
+
+function makeEverything(){
+heroChoosed()
+squireUppercut()
+squireCopy()
+requestAnimationFrame(makeEverything)
+}
+makeEverything()

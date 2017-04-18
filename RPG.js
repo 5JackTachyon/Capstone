@@ -190,7 +190,7 @@ function moveHero(event){
 function heroCollide(){
   if(collide(Hero, fortress, 20, -80) == true){
     removeElement(monologue)
-    monologue = makeText("Would you like to learn how to " + "<a href=" + "file:///C:/Users/Student/Documents/GitHub/Capstone/battle.html" + ">battle</a>" + "?", 0, 380, 30, "VT323", "red", 1)
+    monologue = makeText("Would you like to learn how to <a href='battle.html'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
   }
   else{
     removeElement(monologue)
