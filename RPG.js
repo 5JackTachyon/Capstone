@@ -185,19 +185,20 @@ function moveHero(event){
   }
 }
 }
-
-
+//document.getElementById("loadBattle").addEventListener("click",loadBattle);
 function heroCollide(){
   if(collide(Hero, fortress, 20, -80) == true){
     removeElement(monologue)
-    monologue = makeText("Would you like to learn how to <a href='battle.html'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
+    monologue = makeText("Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
   }
   else{
     removeElement(monologue)
     monologue = makeText("", 370, 380, 30, "VT323", "red", 1)
   }
 }
-
+function loadBattle(){
+  console.log("!")
+}
 
 document.addEventListener("keydown", moveHero)
 
