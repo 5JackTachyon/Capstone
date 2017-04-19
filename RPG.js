@@ -168,6 +168,7 @@ var Medieval = makeImage("images/medieval.png", 500, 0, 150, 150, 1)
 var Hero = makeImage("images/hero.gif", 375, 200, 50, 50, 1)
 var speech = makeRect( 0, 350, 800, 50, "grey", 1)
 var monologue = makeText("", 370, 380, 30, "VT323", "red", 1)
+var once = true
 
 function moveHero(event){
   if(walk == true){
@@ -187,13 +188,27 @@ function moveHero(event){
 }
 //document.getElementById("loadBattle").addEventListener("click",loadBattle);
 function heroCollide(){
-  if(collide(Hero, fortress, 20, -80) == true){
+  if(collide(Hero, fortress, 20, -80) == true && once == true){
     removeElement(monologue)
     monologue = makeText("Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
+    once = false
+    console.log("whoa")
+  }
+ else if(collide(Hero, fortress, 20, -80) == true && once == false){
+    monologue = makeText("Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
+    console.log("low")
+  }
+ else if(collide(Hero, fortress, 20, -80) == false){
+    removeElement(monologue)
+    monologue = makeText("", 370, 380, 30, "VT323", "red", 1)
+    once = true
+    console.log("yo")
   }
   else{
     removeElement(monologue)
-    monologue = makeText("", 370, 380, 30, "VT323", "red", 1)
+  }
+  if(once == true){
+    removeElement(monologue)
   }
 }
 function loadBattle(){
