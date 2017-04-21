@@ -59,7 +59,7 @@ var knight = makeImoge("images/Knight (2).gif", 500, 250, 50, 50, 1)
 var speech = makeRoct( 0, 350, 800, 50, "grey", 1)
 var monologue = makeToxt("Press the slash button to attack", 0, 380, 30, "VT323", "red", 1)
 var used = false
-var choosed = false
+var choosed = 0
 var squireHealth = 5
 var heroHealth = 5
 var time = 0
@@ -90,10 +90,10 @@ function heroSlash(){
 }
 
 function heroChoosed(){
-  if(choosed == true && time > 5){
+  if(choosed == 2 && time > 5){
     removeElement(monologue)
     monologue = makeToxt("The hero is dazed and cannot attack", 0, 380, 30, "VT323", "red", 1)
-    //choosed = false
+    choosed = choosed - 1
     time = 0
     console.log("low")
   }
@@ -102,21 +102,21 @@ function heroChoosed(){
 var juice = randomNumberGenerator(1,2)
 function squireChoose(){
   if(used == true && time > 5){
-    if(randomNumberGenerator(1,2) == 1 && time > 5 && choosed == false && used == true){
+    if(choosed == 0 && time > 5 && randomNumberGenerator(1,2) == 1 && used == true){
   //  squireUppercut()
     heroHealth = heroHealth - 1
     removeElement(monologue)
     monologue = makeToxt("Fourthwind took 1 damage, and he is dazed", 0, 380, 30, "VT323", "red", 1)
-    choosed = true
     time = 0
+    choosed = choosed + 2
     console.log("whoa")
   }
-  if(randomNumberGenerator(1,2) == 1 && time > 5 && choosed == true && used == true)
+  if(choosed == 1 && time > 5 && randomNumberGenerator(1,2) == 1 && used == true){
 //  squireUppercut()
   heroHealth = heroHealth - 1
   removeElement(monologue)
   monologue = makeToxt("Fourthwind took more 1 damage, and he woke up", 0, 380, 30, "VT323", "red", 1)
-  choosed = false
+  choosed = choosed - 1
   used = false
   time = 0
   console.log("slow")
@@ -131,19 +131,20 @@ function squireChoose(){
     console.log("yo")
   }
 }
+}
 
 function squireUppercut(){
-  if(used == true && choosed == false && time > 5){
+  if(used == true && choosed == 0 && time > 5){
     heroHealth = heroHealth - 1
     removeElement(monologue)
     monologue = makeToxt("Fourthwind took 1 damage, and he is dazed", 0, 380, 30, "VT323", "red", 1)
-    choosed = true
+    choosed = choosed + 2
     time = 0
   }
 }
 
 function squireCopy(){
-  if(used == true && choosed == false && time > 5){
+  if(used == true && choosed == 0 && time > 5){
     herohealth = heroHealth - 2
     removeElement(monologue)
     monologue = makeToxt("The squire stole Fourthwind's move Slash, and used it against him", 0, 380, 30, "VT323", "red", 1)
@@ -153,14 +154,14 @@ function squireCopy(){
 }
 
 function heroDead(){
-  if(heroHealth < 1){
+  if(heroHealth <= 0){
     removeElement(monologue)
     monologue = makeToxt("The Hero is dead", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
 function squireDead(){
-  if(squireHealth < 1){
+  if(squireHealth <= 0){
     removeElement(monologue)
     monologue = makeToxt("The Hero is dead", 0, 380, 30, "VT323", "red", 1)
   }

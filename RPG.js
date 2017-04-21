@@ -166,6 +166,7 @@ var fortress = makeImage("images/fortress.png", 325, 0, 150, 150, 1)
 var medieval = makeImage("images/medieval.png", 175, 0, 150, 150, 1)
 var Medieval = makeImage("images/medieval.png", 500, 0, 150, 150, 1)
 var Hero = makeImage("images/hero.gif", 375, 200, 50, 50, 1)
+var Disgrce = makeImage("images/Disgraced.gif", 100, 200, 50, 50, 1)
 var speech = makeRect( 0, 350, 800, 50, "grey", 1)
 var monologue = makeText("", 0, 380, 30, "VT323", "red", 1)
 var once = true
@@ -210,6 +211,15 @@ function heroCollide(){
 function loadBattle(){
   console.log("!")
 }
+
+ function disgraceCollide(){
+   if(collide(Hero, Disgrace) == true){
+     monologue.innerHTML = "Hey you, why are you looking at me! Let's <a href='disgrace.html' id='loadBattle'>battle</a>!"
+   }
+   else{
+     monologue.innerHTML = ""
+   }
+ }
 
 document.addEventListener("keydown", moveHero)
 
