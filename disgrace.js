@@ -65,6 +65,7 @@ var heroHealth = 5
 var time = 0
 var drunk = 5
 var choosed = false
+var bottle = false
 
 function timerIncrease(){
 
@@ -78,6 +79,13 @@ setTimeout(timerIncrease, 1000)
 
 
 function heroSlash(){
+  if(bottle == true && used == false){
+    if(randomNumberGenerator(1,2) == 2){
+      removeElement(monologue)
+      monologue = mokeText("Fourthwind is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
+      heroHealth = heroHealth - 1
+    }
+  }
   if(used == false){
     disgraceHealth = disgraceHealth - 2
     removeElement(monologue)
@@ -91,8 +99,16 @@ function heroSlash(){
   }
 }
 
+
 function heroUppercut(){
-  if(used == false && choosed == false){
+  if(bottle == true && used == false){
+    if(randomNumberGenerator(1,2) == 2){
+      removeElement(monologue)
+      monologue = mokeText("Fourthwind is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
+      heroHealth = heroHealth - 1
+    }
+  }
+  else if(used == false && choosed == false){
     disgraceHealth = disgraceHealth - 1
     removeElement(monologue)
     monologue = mokeText("The Soldier(disgraced) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
@@ -129,9 +145,10 @@ function disgraceChoose(){
     if(time > 5 && randomNumberGenerator(1,2) == 1 && used == true){
     heroHealth = heroHealth - 1
     removeElement(monologue)
-    monologue = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 30, "VT323", "red", 1)
+    monologue = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 25, "VT323", "red", 1)
     time = 0
     used = false
+    bottle = true
     console.log("whoa")
   }
   if(randomNumberGenerator(1,2) == 2 && time > 5 && used == true){
