@@ -169,8 +169,8 @@ var Hero = makeImage("images/hero.gif", 375, 200, 50, 50, 1)
 var Disgrace = makeImage("images/Disgraced.gif", 100, 200, 50, 50, 1)
 var Corrupt = makeImage("images/Corrupt (1).gif", 600, 200, 50, 50, 1)
 var Fallen = makeImage("images/Fallen.gif", 400, 300, 50, 50, 1)
-var speech = makeRect( 0, 350, 800, 50, "grey", 1)
-var monologue = makeText("", 0, 380, 30, "VT323", "red", 1)
+//var speech = makeRect( 0, 350, 800, 50, "grey", 1)
+//var monologue = makeText("", 0, 380, 30, "VT323", "red", 1)
 var once = true
 
 function moveHero(event){
@@ -194,7 +194,8 @@ function heroCollide(){
   if(collide(Hero, fortress, 20, -80) == true){
     //removeElement(monologue)
     //monologue = makeText("Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
-    monologue.innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
+    //monologue.innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
+    document.getElementById("dialogue").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
     //once = false
     console.log("whoa")
   }
@@ -206,7 +207,8 @@ function heroCollide(){
   else{
   //  removeElement(monologue)
     //monologue = makeText("", 370, 380, 30, "VT323", "red", 1)
-    monologue.innerHTML = ""
+  //  monologue.innerHTML = ""
+    document.getElementById("dialogue").innerHTML = ""
     console.log("yo")
   }
 }
@@ -216,10 +218,10 @@ function loadBattle(){
 
  function disgraceCollide(){
    if(collide(Hero, Disgrace, 20, -80) == true){
-     monologue.innerHTML = "Hey you, why are you looking at me! Let's <a href='disgrace.html' id='loadBattle'>battle</a>!"
+     document.getElementById("dialogue").innerHTML = "Hey you, why are you looking at me! Let's <a href='disgrace.html' id='loadBattle'>battle</a>!"
    }
    else{
-     monologue.innerHTML = ""
+     document.getElementById("dialogue").innerHTML = ""
    }
  }
 

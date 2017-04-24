@@ -142,7 +142,7 @@ function heroUppercut(){
 var juice = randomNumberGenerator(1,2)
 function disgraceChoose(){
   if(used == true && time > 5){
-    if(time > 5 && randomNumberGenerator(1,2) == 1 && used == true){
+    if(randomNumberGenerator(1,2) == 1 && time > 5 && used == true){
     heroHealth = heroHealth - 1
     removeElement(monologue)
     monologue = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 25, "VT323", "red", 1)
@@ -155,26 +155,29 @@ function disgraceChoose(){
     //squireCopy()
     removeElement(monologue)
     monologue = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)
-    time = 0
+    //time = 0
     drunk = drunk - 1
+    //console.log("yo")
     disgracedAttack()
+    time = 0
     console.log("yo")
   }
 }
 }
 
 
+
 function disgracedAttack(){
   if(randomNumberGenerator(1,drunk) == 1 && time > 5){
     removeElement(monologue)
-    monologue = mokeText("But the attack failed", 0, 380, 30, "VT323", "red", 1)
+    monologue = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
     time = 0
     used = false
   }
   if(randomNumberGenerator(1,drunk) != 1 && time > 5){
     heroHealth = heroHealth - 3
     removeElement(monologue)
-    monologue = mokeText("It does 3 damage!!", 0, 380, 30, "VT323", "red", 1)
+    monologue = mokeText("Soldier(disgraced) uses Staggering Blow and it does 3 damage!!", 0, 380, 30, "VT323", "red", 1)
     time = 0
     used = false
   }
