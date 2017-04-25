@@ -2,6 +2,49 @@ var namespace = "http://www.w3.org/2000/svg"
 
 
 
+function makeImg(url, x, y, width, height, opacity) {
+  var image = document.createElementNS(namespace, "image")
+  image.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", url)
+  image.setAttribute("x", x)
+  image.setAttribute("y", y)
+  image.setAttribute("width", width)
+  image.setAttribute("height", height)
+  image.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("canvasaline")
+  canvas.appendChild(image)
+  return image
+}
+
+function makeTxt(message, x, y, fontSize, fontFamily, fill, opacity) {
+  var text = document.createElementNS(namespace, "text")
+  text.innerHTML = message
+  text.setAttribute("x", x)
+  text.setAttribute("y", y)
+  text.setAttribute("font-size", fontSize)
+  text.setAttribute("font-family", fontFamily)
+  text.setAttribute("fill", fill)
+  text.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("canvasaline")
+  canvas.appendChild(text)
+  return text
+}
+
+function makeRct(x, y, width, height, fill, opacity) {
+  var rect = document.createElementNS(namespace, "rect")
+  rect.setAttribute("x", x)
+  rect.setAttribute("y", y)
+  rect.setAttribute("width", width)
+  rect.setAttribute("height", height)
+  rect.setAttribute("fill", fill)
+  rect.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("canvasaline")
+  canvas.appendChild(rect)
+  return rect
+}
+
 function makeImage(url, x, y, width, height, opacity) {
   var image = document.createElementNS(namespace, "image")
   image.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", url)
@@ -127,7 +170,35 @@ function move(shape, dx, dy) {
 }
 
 
-
+function makeGround(){
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 0, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 45, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 90, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 135, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 180, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 225, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 270, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 315, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    makeImg("images/cobblestoned.jpg", -50 + i*45, 360, 50, 50, 1)
+  }
+}
 
 function makeCobble(){
   for(var i = 0; i < 19; i++){
@@ -160,6 +231,7 @@ function makeCobble(){
 }
 
 makeCobble()
+makeGround()
 
 var walk = true
 var fortress = makeImage("images/fortress.png", 325, 0, 150, 150, 1)
@@ -227,8 +299,23 @@ function loadBattle(){
 
 document.addEventListener("keydown", moveHero)
 
+function Switch(){
+  if(getY(Hero) > 350){
+    var ex = getX(Hero)
+    removeElement(Hero)
+    Hero = makeImg("images/hero.gif", ex, 0, 50, 50, 1)
+  }
+  if(getY(Hero) < 0){
+    ex = getX(Hero)
+    removeElement(Hero)
+    Hero = makeImage("images/hero.gif", ex, 350, 50, 50, 1)
+  }
+}
+
 function makeEverything(){
 heroCollide()
+disgraceCollide()
+Switch()
 requestAnimationFrame(makeEverything)
 }
 makeEverything()
