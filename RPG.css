@@ -10,11 +10,17 @@ width:100%
 }
 
 #tucanvas {
-  margin-bottom: -30em;
-  margin-left: 58.2em;
+  margin-bottom: -15em;
+  margin-top: -78em;
+  margin-left: 156.2em;
 }
 
 #tucansamvas{
-  margin-bottom: -100em;
-  margin-left: 58.2em;
+  margin-bottom: -70em;
+  margin-top: -10em;
+  margin-left: 156.2em;
+}
+
+#canvos{
+  margin-top: -40em;
 }

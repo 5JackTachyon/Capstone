@@ -1,6 +1,104 @@
 var namespace = "http://www.w3.org/2000/svg"
 
+function mkImage(url, x, y, width, height, opacity) {
+  var image = document.createElementNS(namespace, "image")
+  image.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", url)
+  image.setAttribute("x", x)
+  image.setAttribute("y", y)
+  image.setAttribute("width", width)
+  image.setAttribute("height", height)
+  image.setAttribute("opacity", opacity)
 
+  var canvas = document.getElementById("tucansamvas")
+  canvas.appendChild(image)
+  return image
+}
+
+function mkText(message, x, y, fontSize, fontFamily, fill, opacity) {
+  var text = document.createElementNS(namespace, "text")
+  text.innerHTML = message
+  text.setAttribute("x", x)
+  text.setAttribute("y", y)
+  text.setAttribute("font-size", fontSize)
+  text.setAttribute("font-family", fontFamily)
+  text.setAttribute("fill", fill)
+  text.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("tucansamvas")
+  canvas.appendChild(text)
+  return text
+}
+
+function mkRect(x, y, width, height, fill, opacity) {
+  var rect = document.createElementNS(namespace, "rect")
+  rect.setAttribute("x", x)
+  rect.setAttribute("y", y)
+  rect.setAttribute("width", width)
+  rect.setAttribute("height", height)
+  rect.setAttribute("fill", fill)
+  rect.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("tucansamvas")
+  canvas.appendChild(rect)
+  return rect
+}
+
+function makeImg(url, x, y, width, height, opacity) {
+  var image = document.createElementNS(namespace, "image")
+  image.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", url)
+  image.setAttribute("x", x)
+  image.setAttribute("y", y)
+  image.setAttribute("width", width)
+  image.setAttribute("height", height)
+  image.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("canvasaline")
+  canvas.appendChild(image)
+  return image
+}
+
+function mkImg(url, x, y, width, height, opacity) {
+  var image = document.createElementNS(namespace, "image")
+  image.setAttributeNS("http://www.w3.org/1999/xlink", "xlink:href", url)
+  image.setAttribute("x", x)
+  image.setAttribute("y", y)
+  image.setAttribute("width", width)
+  image.setAttribute("height", height)
+  image.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("tucanvas")
+  canvas.appendChild(image)
+  return image
+}
+
+function mkTxt(message, x, y, fontSize, fontFamily, fill, opacity) {
+  var text = document.createElementNS(namespace, "text")
+  text.innerHTML = message
+  text.setAttribute("x", x)
+  text.setAttribute("y", y)
+  text.setAttribute("font-size", fontSize)
+  text.setAttribute("font-family", fontFamily)
+  text.setAttribute("fill", fill)
+  text.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("tucanvas")
+  canvas.appendChild(text)
+  return text
+}
+
+function mkRct(x, y, width, height, fill, opacity) {
+  var rect = document.createElementNS(namespace, "rect")
+  rect.setAttribute("x", x)
+  rect.setAttribute("y", y)
+  rect.setAttribute("width", width)
+  rect.setAttribute("height", height)
+  rect.setAttribute("fill", fill)
+  rect.setAttribute("opacity", opacity)
+
+  var canvas = document.getElementById("tucanvas")
+  canvas.appendChild(rect)
+  return rect
+}
 
 function makeImg(url, x, y, width, height, opacity) {
   var image = document.createElementNS(namespace, "image")
@@ -169,6 +267,65 @@ function move(shape, dx, dy) {
   }
 }
 
+function makeCrust(){
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 0, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 45, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 90, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 135, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 180, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 225, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 270, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 315, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImage("images/cobblestoned.jpg", -50 + i*45, 360, 50, 50, 1)
+  }
+}
+
+function makeFloor(){
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 0, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 45, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 90, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 135, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 180, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 225, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 270, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 315, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", -50 + i*45, 360, 50, 50, 1)
+  }
+}
 
 function makeGround(){
   for(var i = 0; i < 19; i++){
@@ -232,7 +389,11 @@ function makeCobble(){
 
 makeCobble()
 makeGround()
+makeFloor()
+makeCrust()
 
+var convas = false
+var kahnvas = false
 var walk = true
 var fortress = makeImage("images/fortress.png", 325, 0, 150, 150, 1)
 var medieval = makeImage("images/medieval.png", 175, 0, 150, 150, 1)
@@ -300,15 +461,55 @@ function loadBattle(){
 document.addEventListener("keydown", moveHero)
 
 function Switch(){
-  if(getY(Hero) > 350){
+  if(getY(Hero) > 350 && convas == false && kahnvas == false){
+    var why = getY(Hero)
     var ex = getX(Hero)
     removeElement(Hero)
     Hero = makeImg("images/hero.gif", ex, 0, 50, 50, 1)
+    convas = true
   }
-  if(getY(Hero) < 0){
+  if(getY(Hero) < 0 && convas == true && kahnvas == false){
+    why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
     Hero = makeImage("images/hero.gif", ex, 350, 50, 50, 1)
+    convas = false
+  }
+  if(getX(Hero) > 750 && convas == false && kahnvas == false){
+    why = getY(Hero)
+    ex = getX(Hero)
+    removeElement(Hero)
+    Hero = mkImg("images/hero.gif", 0, why, 50, 50, 1)
+    kahnvas = true
+  }
+  if(getX(Hero) < 0 && convas == false && kahnvas == true){
+    why = getY(Hero)
+    ex = getX(Hero)
+    removeElement(Hero)
+    Hero = makeImage("images/hero.gif", 750, why, 50, 50, 1)
+    kahnvas = false
+  }
+  if(getX(Hero) > 750 && convas == true && kahnvas == false){
+    why = getY(Hero)
+    ex = getX(Hero)
+    removeElement(Hero)
+    Hero = mkImage("images/hero.gif", 0, why, 50, 50, 1)
+    kahnvas = true
+  }
+  if(getX(Hero) < 0 && convas == true && kahnvas == true){
+    why = getY(Hero)
+    ex = getX(Hero)
+    removeElement(Hero)
+    Hero = makeImg("images/hero.gif", 750, why, 50, 50, 1)
+    kahnvas = false
+  }
+  if(getY(Hero) < 0 && convas == true && kahnvas == true){
+    why = getY(Hero)
+    ex = getX(Hero)
+    removeElement(Hero)
+    Hero = mkImg("images/hero.gif", ex, 340, 50, 50, 1)
+    kahnvas = false
+    convas = false
   }
 }
 
