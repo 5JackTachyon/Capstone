@@ -57,7 +57,7 @@ var hero = mokeImage("images/hero.gif", 150, 250, 50, 50, 1)
 
 var disgrace = mokeImage("images/Disgraced.gif", 500, 250, 50, 50, 1)
 var speech = mokeRect( 0, 350, 800, 50, "grey", 1)
-var monologue = mokeText("Press the slash button to attack", 0, 380, 30, "VT323", "red", 1)
+var monologue = mokeText("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
 var used = false
 //var choosed = 0
 var disgraceHealth = 5
@@ -84,13 +84,25 @@ function heroSlash(){
       removeElement(monologue)
       monologue = mokeText("Fourthwind is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
       heroHealth = heroHealth - 1
+      time = 0
+      choosed = false
+      used = true
+    }
+    if(randomNumberGenerator(1,2) == 1){
+      disgraceHealth = disgraceHealth - 2
+      removeElement(monologue)
+      monologue = mokeText("The Soldier(disgraced) took 2 damage", 0, 380, 30, "VT323", "red", 1)
+      used = true
+      choosed = false
+      time = 0
     }
   }
-  if(used == false){
+  else if(used == false){
     disgraceHealth = disgraceHealth - 2
     removeElement(monologue)
     monologue = mokeText("The Soldier(disgraced) took 2 damage", 0, 380, 30, "VT323", "red", 1)
     used = true
+    choosed = false
     time = 0
   }
   else{
@@ -106,6 +118,23 @@ function heroUppercut(){
       removeElement(monologue)
       monologue = mokeText("Fourthwind is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
       heroHealth = heroHealth - 1
+      time = 0
+      used = true
+    }
+    if(choosed == false && randomNumberGenerator(1,2) == 1){
+      disgraceHealth = disgraceHealth - 1
+      removeElement(monologue)
+      monologue = mokeText("The Soldier(disgraced) took 1 damage and is dazed", 0, 380, 30, "VT323", "red", 1)
+      choosed = true
+      time = 0
+    }
+    if(choosed == true && randomNumberGenerator(1,2) == 1){
+      disgraceHealth = disgraceHealth - 1
+      removeElement(monologue)
+      monologue = mokeText("The Soldier(disgraced) took 1 damage and is dazed", 0, 380, 30, "VT323", "red", 1)
+      choosed = false
+      time = 0
+      used = true
     }
   }
   else if(used == false && choosed == false){

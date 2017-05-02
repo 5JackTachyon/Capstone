@@ -278,54 +278,61 @@ function makeCrust(){
     mkImage("images/cobblestoned.jpg", -50 + i*45, 90, 50, 50, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImage("images/cobblestoned.jpg", -50 + i*45, 135, 50, 50, 1)
+    mkImage("images/pixelground.jpg", -50 + i*45, 135, 50, 50, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImage("images/cobblestoned.jpg", -50 + i*45, 180, 50, 50, 1)
+    mkImage("images/pixelground.jpg", -50 + i*45, 180, 50, 50, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImage("images/cobblestoned.jpg", -50 + i*45, 225, 50, 50, 1)
+    mkImage("images/pixelground.jpg", -50 + i*45, 225, 50, 50, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImage("images/cobblestoned.jpg", -50 + i*45, 270, 50, 50, 1)
+    mkImage("images/pixelground.jpg", -50 + i*45, 270, 50, 50, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImage("images/cobblestoned.jpg", -50 + i*45, 315, 50, 50, 1)
+    mkImage("images/pixelground.jpg", -50 + i*45, 315, 50, 50, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImage("images/cobblestoned.jpg", -50 + i*45, 360, 50, 50, 1)
+    mkImage("images/pixelground.jpg", -50 + i*45, 360, 50, 50, 1)
   }
 }
 
 function makeFloor(){
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 0, 50, 50, 1)
+    mkImg("images/brick.jpg", -50 + i*45, -15, 50, 65, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 45, 50, 50, 1)
+    mkImg("images/brick.jpg", -50 + i*45, 25, 50, 65, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 90, 50, 50, 1)
+    mkImg("images/brick.jpg", -50 + i*45, 65, 50, 65, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 135, 50, 50, 1)
+    mkImg("images/brick.jpg", -50 + i*45, 105, 50, 65, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 180, 50, 50, 1)
+    mkImg("images/cobblestoned.jpg", -50 + i*25, 135, 30, 30, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 225, 50, 50, 1)
+    mkImg("images/brick.jpg", -50 + i*45, 145, 50, 65, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 270, 50, 50, 1)
+    mkImg("images/brick.jpg", -50 + i*45, 185, 50, 65, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 315, 50, 50, 1)
+    mkImg("images/brick.jpg", -50 + i*45, 225, 50, 65, 1)
   }
   for(var i = 0; i < 19; i++){
-    mkImg("images/cobblestoned.jpg", -50 + i*45, 360, 50, 50, 1)
+    mkImg("images/brick.jpg", -50 + i*45, 265, 50, 65, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/brick.jpg", -50 + i*45, 305, 50, 65, 0.5)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/cobblestoned.jpg", 355,  415 - i*15, 120, 30, 1)
   }
 }
+
 
 function makeGround(){
   for(var i = 0; i < 19; i++){
@@ -398,6 +405,11 @@ var walk = true
 var fortress = makeImage("images/fortress.png", 325, 0, 150, 150, 1)
 var medieval = makeImage("images/medieval.png", 175, 0, 150, 150, 1)
 var Medieval = makeImage("images/medieval.png", 500, 0, 150, 150, 1)
+var Medieval = makeImg("images/medieval.png", 75, 0, 150, 150, 1)
+var Cottage = makeImg("images/hausecottage.PNG", 500, 0, 150, 150, 1)
+var Cottage = makeImg("images/hausecottage.PNG", 75, 200, 150, 150, 1)
+var rect = mkRct(0, 0, 800, 800, "black", .5)
+var barn = mkImage("images/Barn.png", 500, 200, 200, 200, 1)
 var Hero = makeImage("images/hero.gif", 375, 200, 50, 50, 1)
 var Disgrace = makeImage("images/Disgraced.gif", 100, 200, 50, 50, 1)
 var Corrupt = makeImage("images/Corrupt (1).gif", 600, 200, 50, 50, 1)
@@ -493,23 +505,29 @@ function Switch(){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = mkImage("images/hero.gif", 0, why, 50, 50, 1)
+    Hero = mkImage("images/hero.gif", 0, why + 50, 50, 50, 1)
     kahnvas = true
   }
   if(getX(Hero) < 0 && convas == true && kahnvas == true){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = makeImg("images/hero.gif", 750, why, 50, 50, 1)
+    Hero = makeImg("images/hero.gif", 750, why - 50, 50, 50, 1)
     kahnvas = false
   }
   if(getY(Hero) < 0 && convas == true && kahnvas == true){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = mkImg("images/hero.gif", ex, 340, 50, 50, 1)
-    kahnvas = false
+    Hero = mkImg("images/hero.gif", ex, 290, 50, 50, 1)
     convas = false
+  }
+  if(getY(Hero) > 300 && convas == false && kahnvas == true){
+    why = getY(Hero)
+    ex = getX(Hero)
+    removeElement(Hero)
+    Hero = mkImage("images/hero.gif", ex, 0, 50, 50, 1)
+    convas = true
   }
 }
 
