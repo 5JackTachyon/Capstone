@@ -55,7 +55,7 @@ return Math.floor(Math.random()*(max-min+1)+min);
 
 var hero = mokeImoge("images/hero.gif", 150, 250, 50, 50, 1)
 
-var corrupt = mokeImage("images/Corrupt (1).gif", 500, 250, 50, 50, 1)
+var corrupt = mokeImoge("images/Corrupt (1).gif", 500, 250, 50, 50, 1)
 var speech = mokeRoct( 0, 350, 800, 50, "grey", 1)
 var monologue = mokeToxt("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
 var used = false
@@ -67,7 +67,7 @@ var shadow = 5
 var choosed = false
 var dark = false
 var bribed = false
-var corrupt = true
+var corrupt = false
 var coins = 5
 
 function timerIncrease(){
@@ -85,7 +85,7 @@ function heroPay(){
    monologue = mokeToxt("You bribed the Soldier(Corrupt) out of attacking you!", 0, 380, 30, "VT323", "red", 1)
    corrupt = true
    coins = coins - 2
-   used = true
+   used = false
    time = 0
    bribed = false
  }
@@ -130,7 +130,7 @@ function heroSlash(){
 
 
 function heroUppercut(){
-  if(bottle == true && used == false){
+  if(dark == true && used == false){
     if(randomNumberGenerator(1,shadow) == 1){
       removeElement(monologue)
       monologue = mokeToxt("Fourthwind's attack missed", 0, 380, 30, "VT323", "red", 1)
@@ -187,25 +187,15 @@ function heroUppercut(){
 
 var juice = randomNumberGenerator(1,2)
 function corruptChoose(){
-  if(bribed == false && used == true && time > 5){
-    if(randomNumberGenerator(1,2) == 1 && time > 5 && used == true){
+  if(corrupt == false && used == true && time > 5){
+    if(randomNumberGenerator(1,2) == 1 && bribed == false && time > 5 && used == true){
     removeElement(monologue)
     monologue = mokeToxt("Soldier(Corrupt) uses Bribed Slash, doing 3 damage, press the pay button to pay 2 coins to stop the attack", 0, 380, 25, "VT323", "red", 1)
     time = 0
     bribed = true
     console.log("whoa")
   }
-  if(corrupt == false && bribed == true && used == true && time > 5){
-    heroHealth = heroHealth - 3
-    if(randomNumberGenerator(1,2) == 1 && time > 5 && used == true){
-    removeElement(monologue)
-    monologue = mokeToxt("Fourthwind took 3 damage", 0, 380, 25, "VT323", "red", 1)
-    time = 0
-    used = false
-    bribed = false
-    console.log("whoa")
-  }
-  if(randomNumberGenerator(1,2) == 2 && time > 5 && used == true){
+  if(randomNumberGenerator(1,2) == 2 && bribed == false && time > 5 && used == true){
     //squireCopy()
     heroHealth = heroHealth - 1
     removeElement(monologue)
@@ -218,6 +208,17 @@ function corruptChoose(){
     used = false
     console.log("yo")
   }
+  if(corrupt == false && bribed == true && used == true && time > 5){
+    heroHealth = heroHealth - 3
+    if(randomNumberGenerator(1,2) == 1 && time > 5 && used == true){
+    removeElement(monologue)
+    monologue = mokeToxt("Fourthwind took 3 damage", 0, 380, 25, "VT323", "red", 1)
+    used = false
+    time = 0
+    bribed = false
+    console.log("whoa")
+  }
+}
 }
 }
 

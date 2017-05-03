@@ -440,7 +440,7 @@ function heroCollide(){
     //removeElement(monologue)
     //monologue = makeText("Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
     //monologue.innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
-    document.getElementById("dialogue").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
+    document.getElementById("speech").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
     //once = false
     console.log("whoa")
   }
@@ -453,7 +453,7 @@ function heroCollide(){
   //  removeElement(monologue)
     //monologue = makeText("", 370, 380, 30, "VT323", "red", 1)
   //  monologue.innerHTML = ""
-    document.getElementById("dialogue").innerHTML = ""
+    document.getElementById("speech").innerHTML = ""
     console.log("yo")
   }
 }
@@ -463,12 +463,17 @@ function loadBattle(){
 
  function disgraceCollide(){
    if(collide(Hero, Disgrace, 20, -80) == true){
-     document.getElementById("dialogue").innerHTML = "Hey you, why are you looking at me! Let's <a href='disgrace.html' id='loadBattle'>battle</a>!"
+     document.getElementById("speech").innerHTML = "Hey you, why are you looking at me! Let's <a href='disgrace.html' id='loadBattle'>battle</a>!"
+   }
+   else if(collide(Hero, fortress, 20, -80) == true){
+        document.getElementById("speech").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>!"
    }
    else{
-     document.getElementById("dialogue").innerHTML = ""
+     document.getElementById("speech").innerHTML = ""
    }
  }
+
+
 
 document.addEventListener("keydown", moveHero)
 
