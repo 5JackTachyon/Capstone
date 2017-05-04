@@ -5,7 +5,7 @@ padding:10px;
 border-top:1px solid #ABABAB;
 position:fixed;
 left:0;
-bottom:0;
+bottom:-100;
 width:100%
 }
 
@@ -13,16 +13,21 @@ width:100%
   font-size: 50px;
 }
 
+
+#canvas{
+  margin-bottom: -40em;
+}
+
 #tucanvas {
-  margin-bottom: -15em;
-  margin-top: -78em;
-  margin-left: 156.2em;
+  margin-bottom: 0em;
+  margin-top: 0em;
+  margin-left: 58em;
 }
 
 #tucansamvas{
   margin-bottom: -70em;
-  margin-top: -10em;
-  margin-left: 156.2em;
+  margin-top: 0em;
+  margin-left: 58em;
 }
 
 #canvos{

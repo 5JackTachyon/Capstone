@@ -329,6 +329,12 @@ function makeFloor(){
     mkImg("images/brick.jpg", -50 + i*45, 305, 50, 65, 0.5)
   }
   for(var i = 0; i < 19; i++){
+    mkImg("images/brick.jpg", -50 + i*45, 345, 50, 65, 0.5)
+  }
+  for(var i = 0; i < 19; i++){
+    mkImg("images/brick.jpg", -50 + i*45, 385, 50, 65, 0.5)
+  }
+  for(var i = 0; i < 19; i++){
     mkImg("images/cobblestoned.jpg", 355,  415 - i*15, 120, 30, 1)
   }
 }
@@ -408,7 +414,7 @@ var Medieval = makeImage("images/medieval.png", 500, 0, 150, 150, 1)
 var Medieval = makeImg("images/medieval.png", 75, 0, 150, 150, 1)
 var Cottage = makeImg("images/hausecottage.PNG", 500, 0, 150, 150, 1)
 var Cottage = makeImg("images/hausecottage.PNG", 75, 200, 150, 150, 1)
-var rect = mkRct(0, 0, 800, 800, "black", .5)
+var rect = mkRct(0, 0, 900, 900, "black", .5)
 var barn = mkImage("images/Barn.png", 500, 200, 200, 200, 1)
 var Hero = makeImage("images/hero.gif", 375, 200, 50, 50, 1)
 var Disgrace = makeImage("images/Disgraced.gif", 100, 200, 50, 50, 1)
@@ -510,14 +516,14 @@ function Switch(){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = mkImage("images/hero.gif", 0, why + 50, 50, 50, 1)
+    Hero = mkImage("images/hero.gif", 0, why, 50, 50, 1)
     kahnvas = true
   }
   if(getX(Hero) < 0 && convas == true && kahnvas == true){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = makeImg("images/hero.gif", 750, why - 50, 50, 50, 1)
+    Hero = makeImg("images/hero.gif", 750, why, 50, 50, 1)
     kahnvas = false
   }
   if(getY(Hero) < 0 && convas == true && kahnvas == true){
