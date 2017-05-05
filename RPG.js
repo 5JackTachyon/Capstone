@@ -446,20 +446,25 @@ function heroCollide(){
     //removeElement(monologue)
     //monologue = makeText("Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
     //monologue.innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
-    document.getElementById("speech").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
+    //document.getElementById("speech").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
     //once = false
+    makeLink("battle.html", "Would you like to learn how to battle?")
     console.log("whoa")
   }
-// else if(collide(Hero, fortress, 20, -80) == true && once == false){
-    //monologue = makeText("Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
-  //  monologue.innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
-    //console.log("low")
-  //}
+  else if(collide(Hero, Disgrace, 20, -80) == true){
+     //  document.getElementById("speech").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>!"
+     //aTag.setAttribute('href',"battle.html");
+     //aTag.innerHTML = "Would you like how to learn how to battle?";
+     //mydiv.appendChild(aTag);
+     makeLink("disgrace.html", "I don't like the lots of you, let's battle!")
+   }
   else{
   //  removeElement(monologue)
     //monologue = makeText("", 370, 380, 30, "VT323", "red", 1)
   //  monologue.innerHTML = ""
     document.getElementById("speech").innerHTML = ""
+    linkAdded = false
+     //makeLink("RPG.html", "")
     console.log("yo")
   }
 }
@@ -467,21 +472,48 @@ function loadBattle(){
   console.log("!")
 }
 
+function makeLink(html, text) {
+  if (!linkAdded) {
+  var mydiv = document.getElementById("speech");
+  var aTag = document.createElement('a');
+  aTag.setAttribute('href',html);
+  aTag.innerHTML = text;
+  mydiv.appendChild(aTag);
+  linkAdded = true
+  console.log(linkAdded)
+
+}
+}
+
+var linkAdded = false
+
  function disgraceCollide(){
-   if(collide(Hero, Disgrace, 20, -80) == true){
-     document.getElementById("speech").innerHTML = "Hey you, why are you looking at me! Let's <a href='disgrace.html' id='loadBattle'>battle</a>!"
+   //var mydiv = document.getElementById("speech");
+  //var aTag = document.createElement('a');
+
+   if(collide(Hero, Disgrace, 20, -80) == true && kahnvas == false && convas == false){
+    // document.getElementById("speech").innerHTML = "I don't like the lots of you, press A to battle me!"
+     //Hey you, why are you looking at me! Let's <a href='disgrace.html' id='loadBattle'>battle</a>!
+  makeLink("disgrace.html", "I don't like the lots of you, let's battle!")
    }
-   else if(collide(Hero, fortress, 20, -80) == true){
-        document.getElementById("speech").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>!"
+   else if(collide(Hero, fortress, 20, -80) == true && kahnvas == false && convas == false){
+      //  document.getElementById("speech").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>!"
+      //aTag.setAttribute('href',"battle.html");
+      //aTag.innerHTML = "Would you like how to learn how to battle?";
+      //mydiv.appendChild(aTag);
+      makeLink("battle.html", "Would you like to learn how to battle?")
    }
    else{
-     document.getElementById("speech").innerHTML = ""
+     makeLink("RPG.html", "")
    }
  }
 
 
 
 document.addEventListener("keydown", moveHero)
+
+
+
 
 function Switch(){
   if(getY(Hero) > 350 && convas == false && kahnvas == false){
@@ -544,7 +576,7 @@ function Switch(){
 
 function makeEverything(){
 heroCollide()
-disgraceCollide()
+//disgraceCollide()
 Switch()
 requestAnimationFrame(makeEverything)
 }

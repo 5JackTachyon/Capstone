@@ -53,18 +53,19 @@ function randomNumberGenerator(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-var hero = makeImoge("images/hero.gif", 150, 250, 50, 50, 1)
-var knight = makeImoge("images/Knight (2).gif", 500, 250, 50, 50, 1)
+var fortress = makeImoge("images/fortress.png", 200, 0, 350, 350, 1)
+var hero = makeImoge("images/hero.gif", 150, 300, 50, 50, 1)
+var knight = makeImoge("images/Knight (2).gif", 550, 300, 50, 50, 1)
 var speech = makeRoct( 0, 350, 800, 50, "grey", 1)
 var monologue = makeToxt("Press the slash button to attack", 0, 380, 30, "VT323", "red", 1)
 var used = false
 var choosed = 0
 var squireHealth = 5
-var squireHealthBarred = makeRoct(505.5, 227.5, squireHealth*5+5, 15, "grey", 1)
-var squireHealthBar = makeRoct(508, 230, squireHealth*5, 10, "red", 1)
+var squireHealthBarred = makeRoct(555.5, 277.5, squireHealth*5+5, 15, "grey", 1)
+var squireHealthBar = makeRoct(558, 280, squireHealth*5, 10, "red", 1)
 var heroHealth = 5
-var heroHealthBarred = makeRoct(155.5, 227.5, heroHealth*5+5, 15, "grey", 1)
-var heroHealthBar = makeRoct(158, 230, heroHealth*5, 10, "green", 1)
+var heroHealthBarred = makeRoct(155.5, 277.5, heroHealth*5+5, 15, "grey", 1)
+var heroHealthBar = makeRoct(158, 280, heroHealth*5, 10, "green", 1)
 var time = 0
 
 function timerIncrease(){

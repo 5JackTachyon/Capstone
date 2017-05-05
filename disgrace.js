@@ -54,7 +54,6 @@ return Math.floor(Math.random()*(max-min+1)+min);
 }
 
 var hero = mokeImage("images/hero.gif", 150, 250, 50, 50, 1)
-
 var disgrace = mokeImage("images/Disgraced.gif", 500, 250, 50, 50, 1)
 var speech = mokeRect( 0, 350, 800, 50, "grey", 1)
 var monologue = mokeText("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
