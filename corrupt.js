@@ -53,19 +53,28 @@ function randomNumberGenerator(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-var hero = mokeImoge("images/hero.gif", 150, 250, 50, 50, 1)
+var goldcoins13 = mokeImoge("images/goldcoins.gif", 250, -368.8, 440, 1100, 1)
+var goldcoins12 = mokeImoge("images/goldcoins.gif", 50, -328.8, 440, 1100, 1)
+var goldcoins11 = mokeImoge("images/goldcoins.gif", 250, -208.8, 360, 900, 1)
+var goldcoins10 = mokeImoge("images/goldcoins.gif", 150, -168.8, 360, 900, 1)
+var goldcoins = mokeImoge("images/goldcoins.gif", 250, 8.8, 240, 600, 1)
+var goldcoins2 = mokeImoge("images/goldcoins.gif", 0, 8.8, 240, 600, 1)
+var goldcoins1 = mokeImoge("images/moneymoney.png", 0, -15, 240, 600, 1)
+var goldcoins2 = mokeImoge("images/goldcoins.gif", 500, 8.8, 240, 600, 1)
+var goldcoins1 = mokeImoge("images/moneymoney.png", 500, -15, 240, 600, 1)
+var hero = mokeImoge("images/hero.gif", 150, 300, 50, 50, 1)
 
-var corrupt = mokeImoge("images/Corrupt (1).gif", 500, 250, 50, 50, 1)
+var corrupt = mokeImoge("images/Corrupt (1).gif", 550, 300, 50, 50, 1)
 var speech = mokeRoct( 0, 350, 800, 50, "grey", 1)
 var monologue = mokeToxt("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
 var used = false
 //var choosed = 0
 var corruptHealth = 5
-var corruptHealthBarred = mokeRoct(505.5, 227.5, corruptHealth*5+5, 15, "grey", 1)
-var corruptHealthBar = mokeRoct(508, 230, corruptHealth*5, 10, "red", 1)
+var corruptHealthBarred = mokeRoct(555.5, 277.5, corruptHealth*5+5, 15, "grey", 1)
+var corruptHealthBar = mokeRoct(558, 280, corruptHealth*5, 10, "red", 1)
 var heroHealth = 5
-var heroHealthBarred = mokeRoct(155.5, 227.5, heroHealth*5+5, 15, "grey", 1)
-var heroHealthBar = mokeRoct(158, 230, heroHealth*5, 10, "green", 1)
+var heroHealthBarred = mokeRoct(155.5, 277.5, heroHealth*5+5, 15, "grey", 1)
+var heroHealthBar = mokeRoct(158, 280, heroHealth*5, 10, "green", 1)
 var time = 0
 var shadow = 5
 var choosed = false

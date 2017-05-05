@@ -53,6 +53,9 @@ function randomNumberGenerator(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
+
+
+var bubble = mokeImage("images/bubble.png", 200, 200, 50, 50, 1)
 var hero = mokeImage("images/hero.gif", 150, 250, 50, 50, 1)
 var disgrace = mokeImage("images/Disgraced.gif", 500, 250, 50, 50, 1)
 var speech = mokeRect( 0, 350, 800, 50, "grey", 1)
