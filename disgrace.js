@@ -53,25 +53,57 @@ function randomNumberGenerator(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
+function makeCobble(){
+  for(var i = 0; i < 19; i++){
+    mokeImage("images/bubble.png", -50 + i*45, 0, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mokeImage("images/bubble.png", -50 + i*45, 45, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mokeImage("images/bubble.png", -50 + i*45, 90, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mokeImage("images/bubble.png", -50 + i*45, 135, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+  mokeImage("images/bubble.png", -50 + i*45, 180, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mokeImage("images/bubble.png", -50 + i*45, 225, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mokeImage("images/bubble.png", -50 + i*45, 270, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+  mokeImage("images/bubble.png", -50 + i*45, 315, 50, 50, 1)
+  }
+  for(var i = 0; i < 19; i++){
+    mokeImage("images/bubble.png", -50 + i*45, 360, 50, 50, 1)
+  }
+}
+
+makeCobble()
 
 
-var bubble = mokeImage("images/bubble.png", 200, 200, 50, 50, 1)
-var hero = mokeImage("images/hero.gif", 150, 250, 50, 50, 1)
-var disgrace = mokeImage("images/Disgraced.gif", 500, 250, 50, 50, 1)
+//var bubble = mokeImage("images/bubble.png", 200, 200, 50, 50, 1)
+var hero = mokeImage("images/hero.gif", 150, 300, 50, 50, 1)
+var disgrace = mokeImage("images/Disgraced.gif", 550, 300, 50, 50, 1)
 var speech = mokeRect( 0, 350, 800, 50, "grey", 1)
 var monologue = mokeText("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
 var used = false
 //var choosed = 0
 var disgraceHealth = 5
-var disgraceHealthBarred = mokeRect(505.5, 227.5, disgraceHealth*5+5, 15, "grey", 1)
-var disgraceHealthBar = mokeRect(508, 230, disgraceHealth*5, 10, "red", 1)
+var disgraceHealthBarred = mokeRect(555.5, 277.5, disgraceHealth*5+5, 15, "grey", 1)
+var disgraceHealthBar = mokeRect(558, 280, disgraceHealth*5, 10, "red", 1)
 var heroHealth = 5
-var heroHealthBarred = mokeRect(155.5, 227.5, heroHealth*5+5, 15, "grey", 1)
-var heroHealthBar = mokeRect(158, 230, heroHealth*5, 10, "green", 1)
+var heroHealthBarred = mokeRect(155.5, 277.5, heroHealth*5+5, 15, "grey", 1)
+var heroHealthBar = mokeRect(158, 280, heroHealth*5, 10, "green", 1)
 var time = 0
 var drunk = 5
 var choosed = false
 var bottle = false
+var block = false
 
 function timerIncrease(){
 
@@ -104,6 +136,13 @@ function heroSlash(){
       choosed = false
       time = 0
     }
+  }
+  else if(block == true){
+    removeElement(monologue)
+    monologue = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
+    used = true
+    chosed = false
+    blocked = false
   }
   else if(used == false){
     disgraceHealth = disgraceHealth - 2
@@ -149,6 +188,13 @@ function heroUppercut(){
       used = true
     }
   }
+  else if(block == true){
+    removeElement(monologue)
+    monologue = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
+    used = true
+    chosed = false
+    blocked = false
+  }
   else if(used == false && choosed == false){
     disgraceHealth = disgraceHealth - 1
     disgraceHealthBar.setAttribute("width", disgraceHealth*5)
@@ -184,7 +230,7 @@ function heroUppercut(){
 
 var juice = randomNumberGenerator(1,2)
 function disgraceChoose(){
-  if(used == true && time > 5){
+  if(used == true && Jackswine == false && time > 5){
     if(randomNumberGenerator(1,2) == 1 && time > 5 && used == true){
     heroHealth = heroHealth - 1
       heroHealthBar.setAttribute("width", heroHealth*5)
@@ -207,6 +253,37 @@ function disgraceChoose(){
     console.log("yo")
   }
 }
+if(used == true && Jackswine == true && time > 5){
+  if(randomNumberGenerator(1,3) == 1 && time > 5 && used == true){
+  heroHealth = heroHealth - 1
+    heroHealthBar.setAttribute("width", heroHealth*5)
+  removeElement(monologue)
+  monologue = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 25, "VT323", "red", 1)
+  time = 0
+  used = false
+  bottle = true
+  console.log("whoa")
+}
+if(randomNumberGenerator(1,3) == 2 && time > 5 && used == true){
+  //squireCopy()
+  removeElement(monologue)
+  monologue = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)
+  //time = 0
+  drunk = drunk - 1
+  //console.log("yo")
+  disgracedAttack()
+  time = 0
+  console.log("yo")
+}
+if(randomNumberGenerator(1,3) == 3 && time > 5 && used == true){
+removeElement(monologue)
+monologue = mokeText("Soldier(disgraced) uses Block", 0, 380, 25, "VT323", "red", 1)
+time = 0
+used = false
+block = true
+console.log("whoa")
+}
+}
 }
 
 
@@ -228,6 +305,21 @@ function disgracedAttack(){
   }
 }
 
+function makeLink(html, text) {
+  if (!linkAdded) {
+  var mydiv = document.getElementById("spoke");
+  var aTag = document.createElement('a');
+  aTag.setAttribute('href',html);
+  aTag.innerHTML = text;
+  mydiv.appendChild(aTag);
+  linkAdded = true
+  console.log(linkAdded)
+
+}
+}
+
+var linkAdded = false
+
 function heroDead(){
   if(heroHealth <= 0){
     removeElement(monologue)
@@ -238,7 +330,9 @@ function heroDead(){
 function disgraceDead(){
   if(disgraceHealth <= 0){
     removeElement(monologue)
-    monologue = mokeText("You beat the soldier!", 0, 380, 30, "VT323", "red", 1)
+    monologue = mokeText("The Soldier has lost, you recieve 3 coins", 0, 380, 30, "VT323", "red", 1)
+    makeLink("RPG.html", "The Soldier has lost, you recieve 3 coins")
+    coins = coins + 3
   }
 }
 
@@ -248,6 +342,7 @@ heroDead()
 disgraceDead()
 requestAnimationFrame(makeEverything)
 console.log(time)
+console.log(Jackswine)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }

@@ -81,7 +81,7 @@ var choosed = false
 var dark = false
 var bribed = false
 var corrupt = false
-var coins = 5
+//var coins = 5
 
 function timerIncrease(){
 
@@ -261,6 +261,22 @@ function corruptChoose(){
   //}
 //}
 
+function makeLink(html, text) {
+  if (!linkAdded) {
+  var mydiv = document.getElementById("spokeo");
+  var aTag = document.createElement('a');
+  aTag.setAttribute('href',html);
+  aTag.innerHTML = text;
+  mydiv.appendChild(aTag);
+  linkAdded = true
+  console.log(linkAdded)
+
+}
+}
+
+var linkAdded = false
+
+
 function heroDead(){
   if(heroHealth <= 0){
     removeElement(monologue)
@@ -272,6 +288,8 @@ function corruptDead(){
   if(corruptHealth <= 0){
     removeElement(monologue)
     monologue = mokeToxt("You beat the soldier!", 0, 380, 30, "VT323", "red", 1)
+    makeLink("RPG.html", "The Soldier has lost, you recieve 3 coins")
+    coins = coins + 3
   }
 }
 

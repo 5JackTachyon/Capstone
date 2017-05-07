@@ -420,6 +420,8 @@ var Hero = makeImage("images/hero.gif", 375, 200, 50, 50, 1)
 var Disgrace = makeImage("images/Disgraced.gif", 100, 200, 50, 50, 1)
 var Corrupt = makeImage("images/Corrupt (1).gif", 600, 200, 50, 50, 1)
 var Fallen = makeImage("images/Fallen.gif", 400, 300, 50, 50, 1)
+var Fallen = makeImage("images/Fallen.gif", 400, 300, 50, 50, 1)
+var Jackswine = mkImage("images/Jackswine (1).gif", 600, 100, 50, 50, 1)
 //var speech = makeRect( 0, 350, 800, 50, "grey", 1)
 //var monologue = makeText("", 0, 380, 30, "VT323", "red", 1)
 var once = true
@@ -442,7 +444,7 @@ function moveHero(event){
 }
 //document.getElementById("loadBattle").addEventListener("click",loadBattle);
 function heroCollide(){
-  if(collide(Hero, fortress, 20, -80) == true){
+  if(collide(Hero, fortress, 20, -80) == true && kahnvas == false && convas == false){
     //removeElement(monologue)
     //monologue = makeText("Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?", 0, 380, 30, "VT323", "red", 1)
     //monologue.innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>?"
@@ -451,13 +453,19 @@ function heroCollide(){
     makeLink("battle.html", "Would you like to learn how to battle?")
     console.log("whoa")
   }
-  else if(collide(Hero, Disgrace, 20, -80) == true){
+  else if(collide(Hero, Disgrace, 20, -80) == true && kahnvas == false && convas == false){
      //  document.getElementById("speech").innerHTML = "Would you like to learn how to <a href='battle.html' id='loadBattle'>battle</a>!"
      //aTag.setAttribute('href',"battle.html");
      //aTag.innerHTML = "Would you like how to learn how to battle?";
      //mydiv.appendChild(aTag);
      makeLink("disgrace.html", "I don't like the lots of you, let's battle!")
    }
+     else if(collide(Hero, Corrupt, 20, -80) == true && kahnvas == false && convas == false){
+       makeLink("corrupt.html", "You won't make it out alive enough to report me accepting bribes!")
+     }
+     else if(collide(Hero, Jackswine, 20, -80) == true && kahnvas == true && convas == false){
+       makeLink("Jackswine.html", "Hey old friend, lets have a friendly duel!")
+     }
   else{
   //  removeElement(monologue)
     //monologue = makeText("", 370, 380, 30, "VT323", "red", 1)
@@ -579,5 +587,6 @@ heroCollide()
 //disgraceCollide()
 Switch()
 requestAnimationFrame(makeEverything)
+console.log(Jackswine)
 }
 makeEverything()
