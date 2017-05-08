@@ -87,9 +87,9 @@ makeCobble1()
 
 
 //var bubble = mokeImage("images/bubble.png", 200, 200, 50, 50, 1)
-var hero = mokeImage("images/hero.gif", 150, 300, 50, 50, 1)
+var hero1 = mokeImage("images/hero.gif", 150, 300, 50, 50, 1)
 var disgrace = mokeImage("images/Disgraced.gif", 550, 300, 50, 50, 1)
-var speech = mokeRect( 0, 350, 800, 50, "grey", 1)
+var speech1 = mokeRect( 0, 350, 800, 50, "grey", 1)
 var monologue1 = mokeText("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
 var used1 = false
 //var choosed = 0
@@ -116,7 +116,7 @@ setTimeout(timerIncrease1, 1000)
 
 
 
-function heroSlash(){
+function heroSlash1(){
   if(bottle == true && used1 == false){
     if(randomNumberGenerator1(1,2) == 2){
       removeElement1(monologue1)
@@ -160,7 +160,7 @@ function heroSlash(){
 }
 
 
-function heroUppercut(){
+function heroUppercut1(){
   if(bottle == true && used1 == false){
     if(randomNumberGenerator1(1,2) == 2){
       removeElement1(monologue1)
@@ -228,7 +228,7 @@ function heroUppercut(){
   //}
 //}
 
-var juice = randomNumberGenerator(1,2)
+var juice1 = randomNumberGenerator1(1,2)
 function disgraceChoose(){
   if(used1 == true && Jackswine == false && time > 5){
     if(randomNumberGenerator1(1,2) == 1 && time > 5 && used == true){
@@ -243,43 +243,43 @@ function disgraceChoose(){
   }
   if(randomNumberGenerator1(1,2) == 2 && time1 > 5 && used1 == true){
     //squireCopy()
-    removeElement(monologue)
-    monologue = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)
+    removeElement1(monologue1)
+    monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)
     //time = 0
     drunk = drunk - 1
     //console.log("yo")
     disgracedAttack()
-    time = 0
+    time1 = 0
     console.log("yo")
   }
 }
-if(used == true && Jackswine == true && time > 5){
-  if(randomNumberGenerator(1,3) == 1 && time > 5 && used == true){
-  heroHealth = heroHealth - 1
-    heroHealthBar.setAttribute("width", heroHealth*5)
-  removeElement(monologue)
-  monologue = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 25, "VT323", "red", 1)
-  time = 0
-  used = false
+if(used1 == true && Jackswine == true && time1 > 5){
+  if(randomNumberGenerator1(1,3) == 1 && time1 > 5 && used1 == true){
+  heroHealth1 = heroHealth1 - 1
+    heroHealthBar1.setAttribute("width", heroHealth1*5)
+  removeElement1(monologue1)
+  monologue1 = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 25, "VT323", "red", 1)
+  time1 = 0
+  used1 = false
   bottle = true
   console.log("whoa")
 }
-if(randomNumberGenerator(1,3) == 2 && time > 5 && used == true){
+if(randomNumberGenerator1(1,3) == 2 && time1 > 5 && used1 == true){
   //squireCopy()
-  removeElement(monologue)
-  monologue = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)
+  removeElement1(monologue1)
+  monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)
   //time = 0
   drunk = drunk - 1
   //console.log("yo")
   disgracedAttack()
-  time = 0
+  time1 = 0
   console.log("yo")
 }
-if(randomNumberGenerator(1,3) == 3 && time > 5 && used == true){
-removeElement(monologue)
-monologue = mokeText("Soldier(disgraced) uses Block", 0, 380, 25, "VT323", "red", 1)
-time = 0
-used = false
+if(randomNumberGenerator1(1,3) == 3 && time1 > 5 && used1 == true){
+removeElement1(monologue1)
+monologue1 = mokeText("Soldier(disgraced) uses Block", 0, 380, 25, "VT323", "red", 1)
+time1 = 0
+used1 = false
 block = true
 console.log("whoa")
 }
@@ -289,61 +289,61 @@ console.log("whoa")
 
 
 function disgracedAttack(){
-  if(randomNumberGenerator(1,drunk) == 1 && time > 5){
-    removeElement(monologue)
-    monologue = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
-    time = 0
-    used = false
+  if(randomNumberGenerator1(1,drunk) == 1 && time > 5){
+    removeElement1(monologue1)
+    monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
+    time1 = 0
+    used1 = false
   }
-  if(randomNumberGenerator(1,drunk) != 1 && time > 5){
-    heroHealth = heroHealth - 3
-      heroHealthBar.setAttribute("width", heroHealth*5)
-    removeElement(monologue)
-    monologue = mokeText("Soldier(disgraced) uses Staggering Blow and it does 3 damage!!", 0, 380, 30, "VT323", "red", 1)
-    time = 0
-    used = false
+  if(randomNumberGenerator1(1,drunk) != 1 && time > 5){
+    heroHealth1 = heroHealth1 - 3
+      heroHealthBar1.setAttribute("width", heroHealth1*5)
+    removeElement1(monologue1)
+    monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow and it does 3 damage!!", 0, 380, 30, "VT323", "red", 1)
+    time1 = 0
+    used1 = false
   }
 }
 
-function makeLink(html, text) {
-  if (!linkAdded) {
+function makeLink1(html, text) {
+  if (!linkAdded1) {
   var mydiv = document.getElementById("spoke");
   var aTag = document.createElement('a');
   aTag.setAttribute('href',html);
   aTag.innerHTML = text;
   mydiv.appendChild(aTag);
-  linkAdded = true
-  console.log(linkAdded)
+  linkAdded1 = true
+  console.log(linkAdded1)
 
 }
 }
 
-var linkAdded = false
+var linkAdded1 = false
 
-function heroDead(){
-  if(heroHealth <= 0){
-    removeElement(monologue)
-    monologue = mokeText("The Hero is dead", 0, 380, 30, "VT323", "red", 1)
+function heroDead1(){
+  if(heroHealth1 <= 0){
+    removeElement1(monologue1)
+    monologue1 = mokeText("The Hero is dead", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
 function disgraceDead(){
   if(disgraceHealth <= 0){
-    removeElement(monologue)
-    monologue = mokeText("The Soldier has lost, you recieve 3 coins", 0, 380, 30, "VT323", "red", 1)
-    makeLink("RPG.html", "The Soldier has lost, you recieve 3 coins")
+    removeElement1(monologue1)
+    monologue1 = mokeText("The Soldier has lost, you recieve 3 coins", 0, 380, 30, "VT323", "red", 1)
+    makeLink1("RPG.html", "The Soldier has lost, you recieve 3 coins")
     coins = coins + 3
   }
 }
 
-function makeEverything(){
+function makeEverything1(){
 disgraceChoose()
-heroDead()
+heroDead1()
 disgraceDead()
-requestAnimationFrame(makeEverything)
-console.log(time)
+requestAnimationFrame(makeEverything1)
+console.log(time1)
 console.log(Jackswine)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }
-makeEverything()
+makeEverything1()

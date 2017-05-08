@@ -201,23 +201,6 @@ function removeArrayElement(array, index) {
 }
 
 
-function collide(Hero, obstacle, offsetX, offsetY) {
-  if (!offsetX) {
-    offsetX = 0
-  }
-  if (!offsetY) {
-    offsetY = 0
-  }
-  if (!(getX(obstacle) + offsetX > getX(Hero) + Number(Hero.getAttribute("width"))/2
-      || getX(obstacle) + Number(obstacle.getAttribute("width")) - offsetX < getX(Hero)
-      || getY(obstacle) + offsetY > getY(Hero) + Number(Hero.getAttribute("height"))/2
-      || getY(obstacle) + Number(obstacle.getAttribute("height"))/2 - offsetY < getY(Hero))) {
-        return true
-      }
-  else {
-    return false
-  }
-}
 
 
 
@@ -266,6 +249,26 @@ function move(shape, dx, dy) {
     shape.setAttribute("cy", cy + dy)
   }
 }
+
+function collide(Hero, obstacle, offsetX, offsetY) {
+  if (!offsetX) {
+    offsetX = 0
+  }
+  if (!offsetY) {
+    offsetY = 0
+  }
+  if (!(getX(obstacle) + offsetX > getX(Hero) + Number(Hero.getAttribute("width"))/2
+      || getX(obstacle) + Number(obstacle.getAttribute("width")) - offsetX < getX(Hero)
+      || getY(obstacle) + offsetY > getY(Hero) + Number(Hero.getAttribute("height"))/2
+      || getY(obstacle) + Number(obstacle.getAttribute("height"))/2 - offsetY < getY(Hero))) {
+        return true
+      }
+  else {
+    return false
+  }
+}
+
+
 
 function makeCrust(){
   for(var i = 0; i < 19; i++){

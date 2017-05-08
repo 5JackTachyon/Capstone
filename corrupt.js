@@ -43,13 +43,13 @@ function mokeToxt(message, x, y, fontSize, fontFamily, fill, opacity) {
   return text
 }
 
-function removeElement(element) {
+function removeElement2(element) {
   if (element.parentNode) {
       element.parentNode.removeChild(element);
   }
 }
 
-function randomNumberGenerator(min, max){
+function randomNumberGenerator2(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
@@ -62,135 +62,135 @@ var goldcoins2 = mokeImoge("images/goldcoins.gif", 0, 8.8, 240, 600, 1)
 var goldcoins1 = mokeImoge("images/moneymoney.png", 0, -15, 240, 600, 1)
 var goldcoins2 = mokeImoge("images/goldcoins.gif", 500, 8.8, 240, 600, 1)
 var goldcoins1 = mokeImoge("images/moneymoney.png", 500, -15, 240, 600, 1)
-var hero = mokeImoge("images/hero.gif", 150, 300, 50, 50, 1)
+var hero2 = mokeImoge("images/hero.gif", 150, 300, 50, 50, 1)
 
-var corrupt = mokeImoge("images/Corrupt (1).gif", 550, 300, 50, 50, 1)
-var speech = mokeRoct( 0, 350, 800, 50, "grey", 1)
-var monologue = mokeToxt("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
-var used = false
+var corrupt1 = mokeImoge("images/Corrupt (1).gif", 550, 300, 50, 50, 1)
+var speech2 = mokeRoct( 0, 350, 800, 50, "grey", 1)
+var monologue2 = mokeToxt("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
+var used2 = false
 //var choosed = 0
 var corruptHealth = 5
 var corruptHealthBarred = mokeRoct(555.5, 277.5, corruptHealth*5+5, 15, "grey", 1)
 var corruptHealthBar = mokeRoct(558, 280, corruptHealth*5, 10, "red", 1)
-var heroHealth = 5
-var heroHealthBarred = mokeRoct(155.5, 277.5, heroHealth*5+5, 15, "grey", 1)
-var heroHealthBar = mokeRoct(158, 280, heroHealth*5, 10, "green", 1)
-var time = 0
+var heroHealth2 = 5
+var heroHealthBarred2 = mokeRoct(155.5, 277.5, heroHealth2*5+5, 15, "grey", 1)
+var heroHealthBar2 = mokeRoct(158, 280, heroHealth2*5, 10, "green", 1)
+var time2 = 0
 var shadow = 5
-var choosed = false
+var choosed2 = false
 var dark = false
 var bribed = false
-var corrupt = false
+var corrupt2 = false
 //var coins = 5
 
-function timerIncrease(){
+function timerIncrease2(){
 
-    time++
+    time2++
 
 
-  setTimeout(timerIncrease, 1000)
+  setTimeout(timerIncrease2, 1000)
 }
-setTimeout(timerIncrease, 1000)
+setTimeout(timerIncrease2, 1000)
 
 function heroPay(){
  if(bribed == true && coins > 1){
-   removeElement(monologue)
-   monologue = mokeToxt("You bribed the Soldier(Corrupt) out of attacking you!", 0, 380, 30, "VT323", "red", 1)
-   corrupt = true
+   removeElement2(monologue2)
+   monologue2 = mokeToxt("You bribed the Soldier(Corrupt) out of attacking you!", 0, 380, 30, "VT323", "red", 1)
+   corrupt2 = true
    coins = coins - 2
-   used = false
-   time = 0
+   used2 = false
+   time2 = 0
    bribed = false
  }
  else{
-   removeElement(monologue)
-   monologue = mokeToxt("You can't use this right now", 0, 380, 30, "VT323", "red", 1)
+   removeElement2(monologue2)
+   monologue2 = mokeToxt("You can't use this right now", 0, 380, 30, "VT323", "red", 1)
  }
 }
 
-function heroSlash(){
-  if(dark == true && used == false){
-    if(randomNumberGenerator(1,shadow) == 1){
-      removeElement(monologue)
-      monologue = mokeToxt("Fourthwind's attack missed", 0, 380, 30, "VT323", "red", 1)
+function heroSlash2(){
+  if(dark == true && used2 == false){
+    if(randomNumberGenerator2(1,shadow) == 1){
+      removeElement2(monologue2)
+      monologue2 = mokeToxt("Fourthwind's attack missed", 0, 380, 30, "VT323", "red", 1)
       //heroHealth = heroHealth - 1
-      choosed = false
-      time = 0
-      used = true
+      choosed2 = false
+      time2 = 0
+      used2 = true
     }
-    if(randomNumberGenerator(1,shadow) != 1){
+    if(randomNumberGenerator2(1,shadow) != 1){
       corruptHealth = corruptHealth - 2
       corruptHealthBar.setAttribute("width", corruptHealth*5)
-      removeElement(monologue)
-      monologue = mokeToxt("Fourthwind's attack succeeded", 0, 380, 30, "VT323", "red", 1)
-      used = true
-      choosed = false
-      time = 0
+      removeElement2(monologue2)
+      monologue2 = mokeToxt("Fourthwind's attack succeeded", 0, 380, 30, "VT323", "red", 1)
+      used2 = true
+      choosed2 = false
+      time2 = 0
     }
   }
-  else if(used == false){
+  else if(used2 == false){
     corruptHealth = corruptHealth - 2
     corruptHealthBar.setAttribute("width", corruptHealth*5)
-    removeElement(monologue)
-    monologue = mokeToxt("The Soldier(Corrupt) took 2 damage", 0, 380, 30, "VT323", "red", 1)
-    used = true
-    choosed = false
-    time = 0
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("The Soldier(Corrupt) took 2 damage", 0, 380, 30, "VT323", "red", 1)
+    used2 = true
+    choosed2 = false
+    time2 = 0
   }
   else{
-    removeElement(monologue)
-    monologue = mokeToxt("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
 
-function heroUppercut(){
-  if(dark == true && used == false){
-    if(randomNumberGenerator(1,shadow) == 1){
-      removeElement(monologue)
-      monologue = mokeToxt("Fourthwind's attack missed", 0, 380, 30, "VT323", "red", 1)
+function heroUppercut2(){
+  if(dark == true && used2 == false){
+    if(randomNumberGenerator2(1,shadow) == 1){
+      removeElement2(monologue2)
+      monologue2 = mokeToxt("Fourthwind's attack missed", 0, 380, 30, "VT323", "red", 1)
       //heroHealth = heroHealth - 1
-      time = 0
-      used = true
+      time2 = 0
+      used2 = true
     }
-    if(choosed == false && randomNumberGenerator(1,shadow) != 1){
+    if(choosed2 == false && randomNumberGenerator2(1,shadow) != 1){
       corruptHealth = corruptHealth - 1
       corruptHealthBar.setAttribute("width", corruptHealth*5)
-      removeElement(monologue)
-      monologue = mokeToxt("The Soldier(Corrupt) took one damage and is dazed", 0, 380, 30, "VT323", "red", 1)
-      choosed = true
-      time = 0
+      removeElement2(monologue2)
+      monologue2 = mokeToxt("The Soldier(Corrupt) took one damage and is dazed", 0, 380, 30, "VT323", "red", 1)
+      choosed2 = true
+      time2 = 0
     }
-    if(choosed == true && randomNumberGenerator(1,shadow) != 1){
+    if(choosed2 == true && randomNumberGenerator2(1,shadow) != 1){
       corruptHealth = corruptHealth - 1
       corruptHealthBar.setAttribute("width", corruptHealth*5)
-      removeElement(monologue)
-      monologue = mokeToxt("The Soldier(Corrupt) took one damage and woke up", 0, 380, 30, "VT323", "red", 1)
-      choosed = false
-      time = 0
-      used = true
+      removeElement2(monologue2)
+      monologue2 = mokeToxt("The Soldier(Corrupt) took one damage and woke up", 0, 380, 30, "VT323", "red", 1)
+      choosed2 = false
+      time2 = 0
+      used2 = true
     }
   }
-  else if(used == false && choosed == false){
+  else if(used2 == false && choosed2 == false){
     corruptHealth = corruptHealth - 1
     corruptHealthBar.setAttribute("width", corruptHealth*5)
-    removeElement(monologue)
-    monologue = mokeToxt("The Soldier(Corrupt) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
-    choosed = true
-    time = 0
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("The Soldier(Corrupt) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
+    choosed2 = true
+    time2 = 0
   }
-  else if(used == false && choosed == true){
+  else if(used2 == false && choosed2 == true){
     corruptHealth = corruptHealth - 1
     corruptHealthBar.setAttribute("width", corruptHealth*5)
-    removeElement(monologue)
-    monologue = mokeToxt("The Soldier(Corrupt) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
-    choosed = false
-    used = true
-    time = 0
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("The Soldier(Corrupt) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
+    choosed2 = false
+    used2 = true
+    time2 = 0
   }
   else{
-    removeElement(monologue)
-    monologue = mokeToxt("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
@@ -204,38 +204,38 @@ function heroUppercut(){
   //}
 //}
 
-var juice = randomNumberGenerator(1,2)
+var juice2 = randomNumberGenerator2(1,2)
 function corruptChoose(){
-  if(corrupt == false && used == true && time > 5){
-    if(randomNumberGenerator(1,2) == 1 && bribed == false && time > 5 && used == true){
-    removeElement(monologue)
-    monologue = mokeToxt("Soldier(Corrupt) uses Bribed Slash, doing 3 damage, press the pay button to pay 2 coins to stop the attack", 0, 380, 25, "VT323", "red", 1)
-    time = 0
+  if(corrupt2 == false && used2 == true && time2 > 5){
+    if(randomNumberGenerator2(1,2) == 1 && bribed == false && time2 > 5 && used2 == true){
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("Soldier(Corrupt) uses Bribed Slash, doing 3 damage, press the pay button to pay 2 coins to stop the attack", 0, 380, 25, "VT323", "red", 1)
+    time2 = 0
     bribed = true
     console.log("whoa")
   }
-  if(randomNumberGenerator(1,2) == 2 && bribed == false && time > 5 && used == true){
+  if(randomNumberGenerator2(1,2) == 2 && bribed == false && time2 > 5 && used2 == true){
     //squireCopy()
-    heroHealth = heroHealth - 1
-    heroHealthBar.setAttribute("width", heroHealth*5)
-    removeElement(monologue)
-    monologue = mokeToxt("Soldier(Corrupt) uses Shadow and you  took 1 damage", 0, 380, 30, "VT323", "red", 1)
+    heroHealth2 = heroHealth2 - 1
+    heroHealthBar2.setAttribute("width", heroHealth2*5)
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("Soldier(Corrupt) uses Shadow and you  took 1 damage", 0, 380, 30, "VT323", "red", 1)
     //time = 0
     shadow = shadow - 1
     dark = true
     //console.log("yo")
-    time = 0
-    used = false
+    time2 = 0
+    used2 = false
     console.log("yo")
   }
-  if(corrupt == false && bribed == true && used == true && time > 5){
-    heroHealth = heroHealth - 3
-    heroHealthBar.setAttribute("width", heroHealth*5)
-    if(randomNumberGenerator(1,2) == 1 && time > 5 && used == true){
-    removeElement(monologue)
-    monologue = mokeToxt("Fourthwind took 3 damage", 0, 380, 25, "VT323", "red", 1)
-    used = false
-    time = 0
+  if(corrupt2 == false && bribed == true && used2 == true && time2 > 5){
+    heroHealth2 = heroHealth2 - 3
+    heroHealthBar2.setAttribute("width", heroHealth2*5)
+    if(randomNumberGenerator2(1,2) == 1 && time2 > 5 && used2 == true){
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("Fourthwind took 3 damage", 0, 380, 25, "VT323", "red", 1)
+    used2 = false
+    time2 = 0
     bribed = false
     console.log("whoa")
   }
@@ -261,45 +261,45 @@ function corruptChoose(){
   //}
 //}
 
-function makeLink(html, text) {
-  if (!linkAdded) {
+function makeLink2(html, text) {
+  if (!linkAdded2) {
   var mydiv = document.getElementById("spokeo");
   var aTag = document.createElement('a');
   aTag.setAttribute('href',html);
   aTag.innerHTML = text;
   mydiv.appendChild(aTag);
-  linkAdded = true
-  console.log(linkAdded)
+  linkAdded2 = true
+  console.log(linkAdded2)
 
 }
 }
 
-var linkAdded = false
+var linkAdded2 = false
 
 
-function heroDead(){
-  if(heroHealth <= 0){
-    removeElement(monologue)
-    monologue = mokeToxt("The Hero is dead", 0, 380, 30, "VT323", "red", 1)
+function heroDead2(){
+  if(heroHealth2 <= 0){
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("The Hero is dead", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
 function corruptDead(){
   if(corruptHealth <= 0){
-    removeElement(monologue)
-    monologue = mokeToxt("You beat the soldier!", 0, 380, 30, "VT323", "red", 1)
-    makeLink("RPG.html", "The Soldier has lost, you recieve 3 coins")
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("You beat the soldier!", 0, 380, 30, "VT323", "red", 1)
+    makeLink2("RPG.html", "The Soldier has lost, you recieve 3 coins")
     coins = coins + 3
   }
 }
 
-function makeEverything(){
+function makeEverything2(){
 corruptChoose()
-heroDead()
+heroDead2()
 corruptDead()
-requestAnimationFrame(makeEverything)
-console.log(time)
+requestAnimationFrame(makeEverything2)
+console.log(time2)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }
-makeEverything()
+makeEverything2()

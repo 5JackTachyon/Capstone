@@ -43,13 +43,13 @@ function mkToxt(message, x, y, fontSize, fontFamily, fill, opacity) {
   return text
 }
 
-function removeElement(element) {
+function removeElement3(element) {
   if (element.parentNode) {
       element.parentNode.removeChild(element);
   }
 }
 
-function randomNumberGenerator(min, max){
+function randomNumberGenerator3(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
@@ -60,76 +60,76 @@ var chicken2 = mkImoge("images/morechicken.gif", 300, 100, 300, 300, 1)
 var chicken22 = mkImoge("images/morechicken.gif", 300, -100, 300, 300, 1)
 var chicken3 = mkImoge("images/morechicken.gif", 600, 100, 300, 300, 1)
 var chicken32 = mkImoge("images/morechicken.gif", 600, -100, 300, 300, 1)
-var Barn = mkImoge("images/Barn.png", 175, 150, 400, 400, 1)
-var hero = mkImoge("images/hero.gif", 150, 300, 50, 50, 1)
-var Jackswine = mkImoge("images/Jackswine (1).gif", 550, 300, 50, 50, 1)
-var speech = mkRoct( 0, 350, 800, 50, "grey", 1)
-var monologue = mkToxt("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
-var used = false
+var Barn3 = mkImoge("images/Barn.png", 175, 150, 400, 400, 1)
+var hero3 = mkImoge("images/hero.gif", 150, 300, 50, 50, 1)
+var Jackswine3 = mkImoge("images/Jackswine (1).gif", 550, 300, 50, 50, 1)
+var speech3 = mkRoct( 0, 350, 800, 50, "grey", 1)
+var monologue3 = mkToxt("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
+var used3 = false
 //var choosed = 0
 var jackHealth = 5
 var jackHealthBarred = mkRoct(555.5, 277.5, jackHealth*5+5, 15, "grey", 1)
 var jackHealthBar = mkRoct(558, 280, jackHealth*5, 10, "red", 1)
-var heroHealth = 5
-var heroHealthBarred = mkRoct(155.5, 277.5, heroHealth*5+5, 15, "grey", 1)
-var heroHealthBar = mkRoct(158, 280, heroHealth*5, 10, "green", 1)
-var time = 0
+var heroHealth3 = 5
+var heroHealthBarred3 = mkRoct(155.5, 277.5, heroHealth3*5+5, 15, "grey", 1)
+var heroHealthBar3 = mkRoct(158, 280, heroHealth3*5, 10, "green", 1)
+var time3 = 0
 var shadow = 5
-var choosed = false
-var chosed = false
+var choosed3 = false
+var chosed3 = false
 var rally = 0
 var Rally = false
 var rallyTime = 0
 
-function timerIncrease(){
+function timerIncrease3(){
 
-    time++
+    time3++
 
 
-  setTimeout(timerIncrease, 1000)
+  setTimeout(timerIncrease3, 1000)
 }
-setTimeout(timerIncrease, 1000)
+setTimeout(timerIncrease3, 1000)
 
 
 
-function heroSlash(){
-   if(used == false){
+function heroSlash3(){
+   if(used3 == false){
     jackHealth = jackHealth - 2
     jackHealthBar.setAttribute("width", jackHealth*5)
-    removeElement(monologue)
-    monologue = mkToxt("Jackswine took 2 damage", 0, 380, 30, "VT323", "red", 1)
-    used = true
-    choosed = false
-    time = 0
+    removeElement3(monologue3)
+    monologue3 = mkToxt("Jackswine took 2 damage", 0, 380, 30, "VT323", "red", 1)
+    used3 = true
+    choosed3 = false
+    time3 = 0
   }
   else{
-    removeElement(monologue)
-    monologue = mkToxt("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
+    removeElement3(monologue3)
+    monologue3 = mkToxt("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
 
-function heroUppercut(){
-   if(used == false && choosed == false){
+function heroUppercut3(){
+   if(used3 == false && choosed3 == false){
      jackHealth = jackHealth - 1
      jackHealthBar.setAttribute("width", jackHealth*5)
-    removeElement(monologue)
-    monologue = mkToxt("The Soldier(Corrupt) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
-    choosed = true
-    time = 0
+    removeElement3(monologue3)
+    monologue3 = mkToxt("The Soldier(Corrupt) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
+    choosed3 = true
+    time3 = 0
   }
-  else if(used == false && choosed == true){
+  else if(used3 == false && choosed3 == true){
     jackHealth = jackHealth - 1
     jackHealthBar.setAttribute("width", jackHealth*5)
-    removeElement(monologue)
-    monologue = mkToxt("The Soldier(Corrupt) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
-    choosed = false
-    used = true
-    time = 0
+    removeElement3(monologue3)
+    monologue3 = mkToxt("The Soldier(Corrupt) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
+    choosed3 = false
+    used3 = true
+    time3 = 0
   }
   else{
-    removeElement(monologue)
-    monologue = mkToxt("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
+    removeElement3(monologue3)
+    monologue3 = mkToxt("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
@@ -143,63 +143,63 @@ function heroUppercut(){
   //}
 //}
 
-var juice = randomNumberGenerator(1,3)
+var juice3 = randomNumberGenerator3(1,3)
 function jackChoose(){
-    if(randomNumberGenerator(1,3) == 1 && time > 5 && used == true){
-      heroHealth = heroHealth - 2
-      heroHealth = heroHealth - rally
-      heroHealthBar.setAttribute("width", heroHealth*5)
-    removeElement(monologue)
-    monologue = mkToxt("Jackswine uses Copy, stealing your move: Slash", 0, 380, 25, "VT323", "red", 1)
-    time = 0
-    once = false
-    chosed = false
-    used = false
+    if(randomNumberGenerator3(1,3) == 1 && time3 > 5 && used3 == true){
+      heroHealth3 = heroHealth3 - 2
+      heroHealth3 = heroHealth3 - rally
+      heroHealthBar3.setAttribute("width", heroHealth3*5)
+    removeElement3(monologue3)
+    monologue3 = mkToxt("Jackswine uses Copy, stealing your move: Slash", 0, 380, 25, "VT323", "red", 1)
+    time3 = 0
+    once3 = false
+    chosed3 = false
+    used3 = false
     console.log("whoa")
   }
-  if(randomNumberGenerator(1,3) == 2 && time > 5 && used == true){
+  if(randomNumberGenerator3(1,3) == 2 && time3 > 5 && used3 == true){
     //squireCopy()
-    heroHealth = heroHealth - 1
-    heroHealth = heroHealth - rally
-    heroHealthBar.setAttribute("width", heroHealth*5)
-    removeElement(monologue)
-    monologue = mkToxt("Jackswine uses Copy, stealing your move: Uppercut, you're out cold!", 0, 380, 25, "VT323", "red", 1)
+    heroHealth3 = heroHealth3 - 1
+    heroHealth3 = heroHealth3 - rally
+    heroHealthBar3.setAttribute("width", heroHealth3*5)
+    removeElement3(monologue3)
+    monologue3 = mkToxt("Jackswine uses Copy, stealing your move: Uppercut, you're out cold!", 0, 380, 25, "VT323", "red", 1)
     //time = 0
     //console.log("yo")
-    time = 0
-    once = false
-    chosed = true
+    time3 = 0
+    once3 = false
+    chosed3 = true
     console.log("yo")
   }
-  if(randomNumberGenerator(1,3) == 2 && chosed == true && time > 5 && used == true){
+  if(randomNumberGenerator3(1,3) == 2 && chosed3 == true && time3 > 5 && used3 == true){
     //squireCopy()
-    heroHealth = heroHealth - 1
-    heroHealth = heroHealth - rally
-    heroHealthBar.setAttribute("width", heroHealth*5)
-    removeElement(monologue)
-    monologue = mkToxt("Jackswine uses Copy, stealing your move: Uppercut, you woke up!", 0, 380, 30, "VT323", "red", 1)
+    heroHealth3 = heroHealth3 - 1
+    heroHealth3 = heroHealth3 - rally
+    heroHealthBar3.setAttribute("width", heroHealth3*5)
+    removeElement3(monologue3)
+    monologue3 = mkToxt("Jackswine uses Copy, stealing your move: Uppercut, you woke up!", 0, 380, 30, "VT323", "red", 1)
     //time = 0
     //console.log("yo")
-    time = 0
-    chosed = false
-    once = false
-    used = false
+    time3 = 0
+    chosed3 = false
+    once3 = false
+    used3 = false
     console.log("yo")
   }
-  if(randomNumberGenerator(1,3) >= 3 && time > 5 && used == true){
-  removeElement(monologue)
-  monologue = mkToxt("Jackswine uses Rally, he gains +1 attack!", 0, 380, 25, "VT323", "red", 1)
+  if(randomNumberGenerator3(1,3) >= 3 && time3 > 5 && used3 == true){
+  removeElement3(monologue3)
+  monologue3 = mkToxt("Jackswine uses Rally, he gains +1 attack!", 0, 380, 25, "VT323", "red", 1)
   Rally = true
-  once = false
+  once3 = false
   rally = rally + 1
-  time = 0
-  chosed = false
-  used = false
+  time3 = 0
+  chosed3 = false
+  used3 = false
   console.log("whoa")
 }
-if(Rally == true && once == false){
+if(Rally == true && once3 == false){
   rallyTime = rallyTime + 1
-  once = true
+  once3 = true
 }
 if(rallyTime == 3){
   rally = rally - 1
@@ -228,47 +228,47 @@ if(rally == 0){
   //}
 //}
 
-function makeLink(html, text) {
-  if (!linkAdded) {
+function makeLink3(html, text) {
+  if (!linkAdded3) {
   var mydiv = document.getElementById("speck");
   var aTag = document.createElement('a');
   aTag.setAttribute('href',html);
   aTag.innerHTML = text;
   mydiv.appendChild(aTag);
-  linkAdded = true
-  console.log(linkAdded)
+  linkAdded3 = true
+  console.log(linkAdded3)
 
 }
 }
 
-var linkAdded = false
+var linkAdded3 = false
 
 
-function heroDead(){
-  if(heroHealth <= 0){
-    removeElement(monologue)
-    monologue = mkToxt("Fourthwind lost!", 0, 380, 30, "VT323", "red", 1)
+function heroDead3(){
+  if(heroHealth3 <= 0){
+    removeElement3(monologue3)
+    monologue3 = mkToxt("Fourthwind lost!", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
 function jackDead(){
   if(jackHealth <= 0){
-    removeElement(monologue)
-    monologue = mkToxt("You beat Jackswine!", 0, 380, 30, "VT323", "red", 1)
-    makeLink("RPG.html", "Jackswine joins your team")
+    removeElement3(monologue3)
+    monologue3 = mkToxt("You beat Jackswine!", 0, 380, 30, "VT323", "red", 1)
+    makeLink3("RPG.html", "Jackswine joins your team")
     coins = coins + 3
     Jackswine = true
   }
 }
 
-function makeEverything(){
+function makeEverything3(){
 jackChoose()
-heroDead()
+heroDead3()
 jackDead()
-requestAnimationFrame(makeEverything)
-console.log(time)
+requestAnimationFrame(makeEverything3)
+console.log(time3)
 console.log(Jackswine)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }
-makeEverything()
+makeEverything3()

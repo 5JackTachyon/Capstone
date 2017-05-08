@@ -53,10 +53,10 @@ function randomNumberGenerators(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-var fortress = makeImoge("images/fortress.png", 200, 0, 350, 350, 1)
-var hero = makeImoge("images/hero.gif", 150, 300, 50, 50, 1)
+var fortress1 = makeImoge("images/fortress.png", 200, 0, 350, 350, 1)
+var heros = makeImoge("images/hero.gif", 150, 300, 50, 50, 1)
 var knight = makeImoge("images/Knight (2).gif", 550, 300, 50, 50, 1)
-var speech = makeRoct( 0, 350, 800, 50, "grey", 1)
+var speechs = makeRoct( 0, 350, 800, 50, "grey", 1)
 var monologues = makeToxt("Press the slash button to attack", 0, 380, 30, "VT323", "red", 1)
 var used = false
 var choosed = false
@@ -169,8 +169,8 @@ function makeLinks(html, text) {
   aTag.setAttribute('href',html);
   aTag.innerHTML = text;
   mydiv.appendChild(aTag);
-  linkAdded = true
-  console.log(linkAdded)
+  linkAddeds = true
+  console.log(linkAddeds)
 
 }
 }
@@ -193,16 +193,16 @@ function squireDead(){
   }
 }
 
-function makeEverything(){
+function makeEverythings(){
 //heroChoosed()
 squireChoose()
 //squireUppercut()
 //squireCopy()
 heroDead()
 squireDead()
-requestAnimationFrame(makeEverything)
+requestAnimationFrame(makeEverythings)
 console.log(time)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }
-makeEverything()
+makeEverythings()
