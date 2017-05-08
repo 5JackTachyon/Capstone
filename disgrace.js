@@ -43,17 +43,17 @@ function mokeText(message, x, y, fontSize, fontFamily, fill, opacity) {
   return text
 }
 
-function removeElement(element) {
+function removeElement1(element) {
   if (element.parentNode) {
       element.parentNode.removeChild(element);
   }
 }
 
-function randomNumberGenerator(min, max){
+function randomNumberGenerator1(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
-function makeCobble(){
+function makeCobble1(){
   for(var i = 0; i < 19; i++){
     mokeImage("images/bubble.png", -50 + i*45, 0, 50, 50, 1)
   }
@@ -83,138 +83,138 @@ function makeCobble(){
   }
 }
 
-makeCobble()
+makeCobble1()
 
 
 //var bubble = mokeImage("images/bubble.png", 200, 200, 50, 50, 1)
 var hero = mokeImage("images/hero.gif", 150, 300, 50, 50, 1)
 var disgrace = mokeImage("images/Disgraced.gif", 550, 300, 50, 50, 1)
 var speech = mokeRect( 0, 350, 800, 50, "grey", 1)
-var monologue = mokeText("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
-var used = false
+var monologue1 = mokeText("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
+var used1 = false
 //var choosed = 0
 var disgraceHealth = 5
 var disgraceHealthBarred = mokeRect(555.5, 277.5, disgraceHealth*5+5, 15, "grey", 1)
 var disgraceHealthBar = mokeRect(558, 280, disgraceHealth*5, 10, "red", 1)
-var heroHealth = 5
-var heroHealthBarred = mokeRect(155.5, 277.5, heroHealth*5+5, 15, "grey", 1)
-var heroHealthBar = mokeRect(158, 280, heroHealth*5, 10, "green", 1)
-var time = 0
+var heroHealth1 = 5
+var heroHealthBarred1 = mokeRect(155.5, 277.5, heroHealth1*5+5, 15, "grey", 1)
+var heroHealthBar1 = mokeRect(158, 280, heroHealth1*5, 10, "green", 1)
+var time1 = 0
 var drunk = 5
-var choosed = false
+var choosed1 = false
 var bottle = false
 var block = false
 
-function timerIncrease(){
+function timerIncrease1(){
 
-    time++
+    time1++
 
 
-  setTimeout(timerIncrease, 1000)
+  setTimeout(timerIncrease1, 1000)
 }
-setTimeout(timerIncrease, 1000)
+setTimeout(timerIncrease1, 1000)
 
 
 
 function heroSlash(){
-  if(bottle == true && used == false){
-    if(randomNumberGenerator(1,2) == 2){
-      removeElement(monologue)
-      monologue = mokeText("Fourthwind is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
-      heroHealth = heroHealth - 1
-      heroHealthBar.setAttribute("width", heroHealth*5)
-      time = 0
-      choosed = false
-      used = true
+  if(bottle == true && used1 == false){
+    if(randomNumberGenerator1(1,2) == 2){
+      removeElement1(monologue1)
+      monologue1 = mokeText("Fourthwind is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
+      heroHealth1 = heroHealth1 - 1
+      heroHealthBar1.setAttribute("width", heroHealth1*5)
+      time1 = 0
+      choosed1 = false
+      used1 = true
     }
-    if(randomNumberGenerator(1,2) == 1){
+    if(randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 2
       disgraceHealthBar.setAttribute("width", disgraceHealth*5)
-      removeElement(monologue)
-      monologue = mokeText("The Soldier(disgraced) took 2 damage", 0, 380, 30, "VT323", "red", 1)
-      used = true
-      choosed = false
-      time = 0
+      removeElement1(monologue1)
+      monologue1 = mokeText("The Soldier(disgraced) took 2 damage", 0, 380, 30, "VT323", "red", 1)
+      used1 = true
+      choosed1 = false
+      time1 = 0
     }
   }
   else if(block == true){
-    removeElement(monologue)
-    monologue = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
-    used = true
+    removeElement1(monologue1)
+    monologue1 = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
+    used1 = true
     chosed = false
     blocked = false
   }
-  else if(used == false){
+  else if(used1 == false){
     disgraceHealth = disgraceHealth - 2
     disgraceHealthBar.setAttribute("width", disgraceHealth*5)
-    removeElement(monologue)
-    monologue = mokeText("The Soldier(disgraced) took 2 damage", 0, 380, 30, "VT323", "red", 1)
-    used = true
-    choosed = false
-    time = 0
+    removeElement1(monologue1)
+    monologue1 = mokeText("The Soldier(disgraced) took 2 damage", 0, 380, 30, "VT323", "red", 1)
+    used1 = true
+    choosed1 = false
+    time1 = 0
   }
   else{
-    removeElement(monologue)
-    monologue = mokeText("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
+    removeElement1(monologue1)
+    monologue1 = mokeText("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
 
 function heroUppercut(){
-  if(bottle == true && used == false){
-    if(randomNumberGenerator(1,2) == 2){
-      removeElement(monologue)
-      monologue = mokeText("Fourthwind is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
-      heroHealth = heroHealth - 1
-      heroHealthBar.setAttribute("width", heroHealth*5)
-      time = 0
-      used = true
+  if(bottle == true && used1 == false){
+    if(randomNumberGenerator1(1,2) == 2){
+      removeElement1(monologue1)
+      monologue1 = mokeText("Fourthwind is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
+      heroHealth1 = heroHealth1 - 1
+      heroHealthBar1.setAttribute("width", heroHealth1*5)
+      time1 = 0
+      used1 = true
     }
-    if(choosed == false && randomNumberGenerator(1,2) == 1){
+    if(choosed1 == false && randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 1
       disgraceHealthBar.setAttribute("width", disgraceHealth*5)
-      removeElement(monologue)
-      monologue = mokeText("The Soldier(disgraced) took 1 damage and is dazed", 0, 380, 30, "VT323", "red", 1)
-      choosed = true
-      time = 0
+      removeElement1(monologue1)
+      monologue1 = mokeText("The Soldier(disgraced) took 1 damage and is dazed", 0, 380, 30, "VT323", "red", 1)
+      choosed1 = true
+      time1 = 0
     }
-    if(choosed == true && randomNumberGenerator(1,2) == 1){
+    if(choosed1 == true && randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 1
       disgraceHealthBar.setAttribute("width", disgraceHealth*5)
-      removeElement(monologue)
-      monologue = mokeText("The Soldier(disgraced) took 1 damage and is dazed", 0, 380, 30, "VT323", "red", 1)
-      choosed = false
-      time = 0
-      used = true
+      removeElement1(monologue1)
+      monologue1 = mokeText("The Soldier(disgraced) took 1 damage and is dazed", 0, 380, 30, "VT323", "red", 1)
+      choosed1 = false
+      time1 = 0
+      used1 = true
     }
   }
   else if(block == true){
-    removeElement(monologue)
-    monologue = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
-    used = true
+    removeElement1(monologue1)
+    monologue1 = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
+    used1 = true
     chosed = false
     blocked = false
   }
-  else if(used == false && choosed == false){
+  else if(used1 == false && choosed1 == false){
     disgraceHealth = disgraceHealth - 1
     disgraceHealthBar.setAttribute("width", disgraceHealth*5)
-    removeElement(monologue)
-    monologue = mokeText("The Soldier(disgraced) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
-    choosed = true
-    time = 0
+    removeElement1(monologue1)
+    monologue1 = mokeText("The Soldier(disgraced) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
+    choosed1 = true
+    time1 = 0
   }
-  else if(used == false && choosed == true){
+  else if(used1 == false && choosed1 == true){
     disgraceHealth = disgraceHealth - 1
     disgraceHealthBar.setAttribute("width", disgraceHealth*5)
-    removeElement(monologue)
-    monologue = mokeText("The Soldier(disgraced) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
-    choosed = false
-    used = true
-    time = 0
+    removeElement1(monologue1)
+    monologue1 = mokeText("The Soldier(disgraced) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
+    choosed1 = false
+    used1 = true
+    time1 = 0
   }
   else{
-    removeElement(monologue)
-    monologue = mokeText("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
+    removeElement1(monologue1)
+    monologue1 = mokeText("It isn't your turn to attack", 0, 380, 30, "VT323", "red", 1)
   }
 }
 
@@ -230,18 +230,18 @@ function heroUppercut(){
 
 var juice = randomNumberGenerator(1,2)
 function disgraceChoose(){
-  if(used == true && Jackswine == false && time > 5){
-    if(randomNumberGenerator(1,2) == 1 && time > 5 && used == true){
-    heroHealth = heroHealth - 1
-      heroHealthBar.setAttribute("width", heroHealth*5)
-    removeElement(monologue)
-    monologue = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 25, "VT323", "red", 1)
-    time = 0
-    used = false
+  if(used1 == true && Jackswine == false && time > 5){
+    if(randomNumberGenerator1(1,2) == 1 && time > 5 && used == true){
+    heroHealth1 = heroHealth1 - 1
+      heroHealthBar1.setAttribute("width", heroHealth1*5)
+    removeElement1(monologue1)
+    monologue1 = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 25, "VT323", "red", 1)
+    time1 = 0
+    used1 = false
     bottle = true
     console.log("whoa")
   }
-  if(randomNumberGenerator(1,2) == 2 && time > 5 && used == true){
+  if(randomNumberGenerator1(1,2) == 2 && time1 > 5 && used1 == true){
     //squireCopy()
     removeElement(monologue)
     monologue = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)

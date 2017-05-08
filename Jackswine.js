@@ -53,6 +53,13 @@ function randomNumberGenerator(min, max){
 return Math.floor(Math.random()*(max-min+1)+min);
 }
 
+var chicken1 = mkImoge("images/morechicken.gif", 0, 100, 300, 300, 1)
+var chkn = mkImoge("images/chkn.gif", 0, 250, 100, 100, 1)
+var chicken12 = mkImoge("images/morechicken.gif", 0, -100, 300, 300, 1)
+var chicken2 = mkImoge("images/morechicken.gif", 300, 100, 300, 300, 1)
+var chicken22 = mkImoge("images/morechicken.gif", 300, -100, 300, 300, 1)
+var chicken3 = mkImoge("images/morechicken.gif", 600, 100, 300, 300, 1)
+var chicken32 = mkImoge("images/morechicken.gif", 600, -100, 300, 300, 1)
 var Barn = mkImoge("images/Barn.png", 175, 150, 400, 400, 1)
 var hero = mkImoge("images/hero.gif", 150, 300, 50, 50, 1)
 var Jackswine = mkImoge("images/Jackswine (1).gif", 550, 300, 50, 50, 1)
