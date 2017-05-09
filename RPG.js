@@ -424,7 +424,7 @@ var Disgrace = makeImage("images/Disgraced.gif", 100, 200, 50, 50, 1)
 var Corrupt = makeImage("images/Corrupt (1).gif", 600, 200, 50, 50, 1)
 var Fallen = makeImage("images/Fallen.gif", 400, 300, 50, 50, 1)
 var Fallen = makeImage("images/Fallen.gif", 400, 300, 50, 50, 1)
-var Jackswine = mkImage("images/Jackswine (1).gif", 600, 100, 50, 50, 1)
+var Jackswine1 = mkImage("images/Jackswine (1).gif", 600, 100, 50, 50, 1)
 //var speech = makeRect( 0, 350, 800, 50, "grey", 1)
 //var monologue = makeText("", 0, 380, 30, "VT323", "red", 1)
 var once = true
@@ -466,7 +466,7 @@ function heroCollide(){
      else if(collide(Hero, Corrupt, 20, -80) == true && kahnvas == false && convas == false){
        makeLink("corrupt.html", "You won't make it out alive enough to report me accepting bribes!")
      }
-     else if(collide(Hero, Jackswine, 20, -80) == true && kahnvas == true && convas == false){
+     else if(collide(Hero, Jackswine1, 20, -80) == true && kahnvas == true && convas == true){
        makeLink("Jackswine.html", "Hey old friend, lets have a friendly duel!")
      }
   else{
@@ -591,5 +591,6 @@ heroCollide()
 Switch()
 requestAnimationFrame(makeEverything)
 console.log(Jackswine)
+console.log(coins)
 }
 makeEverything()

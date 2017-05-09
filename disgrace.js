@@ -230,8 +230,8 @@ function heroUppercut1(){
 
 var juice1 = randomNumberGenerator1(1,2)
 function disgraceChoose(){
-  if(used1 == true && Jackswine == false && time > 5){
-    if(randomNumberGenerator1(1,2) == 1 && time > 5 && used == true){
+  if(used1 == true && Jackswine == false && time1 > 5){
+    if(randomNumberGenerator1(1,2) == 1 && time1 > 5 && used1 == true){
     heroHealth1 = heroHealth1 - 1
       heroHealthBar1.setAttribute("width", heroHealth1*5)
     removeElement1(monologue1)
@@ -289,13 +289,13 @@ console.log("whoa")
 
 
 function disgracedAttack(){
-  if(randomNumberGenerator1(1,drunk) == 1 && time > 5){
+  if(randomNumberGenerator1(1,drunk) == 1 && time1 > 5){
     removeElement1(monologue1)
     monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
     time1 = 0
     used1 = false
   }
-  if(randomNumberGenerator1(1,drunk) != 1 && time > 5){
+  if(randomNumberGenerator1(1,drunk) != 1 && time1 > 5){
     heroHealth1 = heroHealth1 - 3
       heroHealthBar1.setAttribute("width", heroHealth1*5)
     removeElement1(monologue1)
@@ -343,6 +343,7 @@ disgraceDead()
 requestAnimationFrame(makeEverything1)
 console.log(time1)
 console.log(Jackswine)
+console.log(coins)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }
