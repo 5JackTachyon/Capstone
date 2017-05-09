@@ -74,6 +74,7 @@ var heroHealth3 = 5
 var heroHealthBarred3 = mkRoct(155.5, 277.5, heroHealth3*5+5, 15, "grey", 1)
 var heroHealthBar3 = mkRoct(158, 280, heroHealth3*5, 10, "green", 1)
 var time3 = 0
+//var Jackswine2
 var shadow = 5
 var choosed3 = false
 var chosed3 = false
@@ -257,9 +258,11 @@ function jackDead(){
     monologue3 = mkToxt("You beat Jackswine!", 0, 380, 30, "VT323", "red", 1)
     makeLink3("RPG.html", "Jackswine joins your team")
     coins = coins + 3
-    Jackswine = true
+    document.cookie = "Jackswine = true; path=/"
+    //Jackswine2 = document.cookie
   }
 }
+
 
 function makeEverything3(){
 jackChoose()
@@ -267,7 +270,7 @@ heroDead3()
 jackDead()
 requestAnimationFrame(makeEverything3)
 console.log(time3)
-console.log(Jackswine)
+console.log(Jackswine2)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }
