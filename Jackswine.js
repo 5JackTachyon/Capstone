@@ -259,11 +259,13 @@ function jackDead(){
     makeLink3("RPG.html", "Jackswine joins your team")
     coins = coins + 3
     setCookie("Jackswine", "true")
+    //setCoinCookie("Coins", coins)
     //document.cookie = "Jackswine = true; path=/"
     //Jackswine2 = document.cookie
   }
   else{
     setCookie("Jackswine", "false")
+    //setCoinCookie("Coins", coins)
   }
 }
 
@@ -273,9 +275,11 @@ jackChoose()
 checkCookie()
 heroDead3()
 jackDead()
+//checkCoinCookie()
 requestAnimationFrame(makeEverything3)
 console.log(time3)
 console.log(Jackswine)
+//console.log(coins)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }

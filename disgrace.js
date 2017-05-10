@@ -99,11 +99,17 @@ var disgraceHealthBar = mokeRect(558, 280, disgraceHealth*5, 10, "red", 1)
 var heroHealth1 = 5
 var heroHealthBarred1 = mokeRect(155.5, 277.5, heroHealth1*5+5, 15, "grey", 1)
 var heroHealthBar1 = mokeRect(158, 280, heroHealth1*5, 10, "green", 1)
+var Jackswine2
+var jackHealth1
+var jackHealthBarred1
+var jackHealthBar1
 var time1 = 0
 var drunk = 5
 var choosed1 = false
 var bottle = false
 var block = false
+//var button
+//var body
 
 function timerIncrease1(){
 
@@ -336,10 +342,32 @@ function disgraceDead(){
   }
 }
 
-makeJack(){
+function makeJack(){
   if(Jackswine == true){
-    mokeImage("images/Jackswine (1).gif", 90, 300, 50, 50, 1)
-  }
+  Jackswine2 = mokeImage("images/Jackswine (1).gif", 90, 300, 50, 50, 1)
+     jackHealth1 = 5
+     jackHealthBarred1 = mokeRect(95.5, 277.5, jackHealth1*5+5, 15, "grey", 1)
+     jackHealthBar1 = mokeRect(98, 280, jackHealth1*5, 10, "green", 1)
+   //var button = document.createElement("button");
+//button.innerHTML = "Dual Attack";
+ //var body = document.getElementById("footer");
+//body.innerHTML = button;
+//Create an input type dynamically.
+       var element = document.createElement("input");
+       //Assign different attributes to the element.
+       element.setAttribute("type", "button");
+       element.setAttribute("class", "btn-talk");
+       element.setAttribute("onclick", "jackAttack1()");
+
+       var footer = document.getElementById("spoke");
+       //Append the element in page (in span).
+       footer.appendChild(element);
+
+}
+}
+
+function jackAttack1(){
+
 }
 
 function makeEverything1(){
@@ -351,6 +379,7 @@ disgraceDead()
 requestAnimationFrame(makeEverything1)
 console.log(time1)
 console.log(Jackswine)
+console.log(button)
 console.log(coins)
 //console.log(squireHealth)
 //console.log(heroHealth)
