@@ -374,6 +374,16 @@ function jackRally1(){
 
 }
 
+
+//#talkybutton{
+//  margin-bottom: -250px;
+//  margin-left: -835px;
+//}
+
+//#talkbutton{
+  //margin-left: 835px;
+//}
+
 function makeEverything1(){
 checkCookie()
 disgraceChoose()

@@ -19,13 +19,29 @@
     text-decoration: none;
 }
 
-#croak{
-  margin-right: -50px;
+#talkybutton{
+  margin-left: -835;
+  margin-bottom: -250px;
+
+}
+
+#talkbutton{
+
+}
+
+#jack{
+  font-size: 60px;
+  margin:-15px;
+}
+
+#fourth{
+  font-size: 60px;
+  margin: -15px;
 }
 
 #footer {
 background-color:#DADADA;
-height:500px;
+height:700px;
 padding:10px;
 border-top:1px solid #ABABAB;
 position:fixed;
