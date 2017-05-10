@@ -10,8 +10,8 @@
     padding: 5px;
     text-decoration: none;
     width: 18%;
-    border: 0px;
-    margin: 0px;
+    border: 10px;
+    margin: 10px;
 }
 
 .btn-talk:hover {
@@ -19,6 +19,9 @@
     text-decoration: none;
 }
 
+#croak{
+  margin-right: -50px;
+}
 
 #footer {
 background-color:#DADADA;

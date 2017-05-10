@@ -362,11 +362,15 @@ function makeJack(){
       // var footer = document.getElementById("spoke");
        //Append the element in page (in span).
        document.getElementById("testing").innerHTML = "<button class='btn-talk' onclick='jackAttack1()'>Dual Attack</button>";
-
+ document.getElementById("croakeo").innerHTML = "<button id='croak' class='btn-talk' onclick='jackRally1()'>Rally</button>";
 }
 }
 
 function jackAttack1(){
+
+}
+
+function jackRally1(){
 
 }
 
