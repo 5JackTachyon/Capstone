@@ -353,15 +353,15 @@ function makeJack(){
  //var body = document.getElementById("footer");
 //body.innerHTML = button;
 //Create an input type dynamically.
-       var element = document.createElement("input");
+       //var element = document.createElement("input");
        //Assign different attributes to the element.
-       element.setAttribute("type", "button");
-       element.setAttribute("class", "btn-talk");
-       element.setAttribute("onclick", "jackAttack1()");
+       //element.setAttribute("type", "button");
+      // element.setAttribute("class", "btn-talk");
+       //element.setAttribute("onclick", "jackAttack1()");
 
-       var footer = document.getElementById("spoke");
+      // var footer = document.getElementById("spoke");
        //Append the element in page (in span).
-       footer.appendChild(element);
+       document.getElementById("testing").innerHTML = "<button class='btn-talk' onclick='jackAttack1()'>Dual Attack</button>";
 
 }
 }
@@ -379,7 +379,7 @@ disgraceDead()
 requestAnimationFrame(makeEverything1)
 console.log(time1)
 console.log(Jackswine)
-console.log(button)
+//console.log(button)
 console.log(coins)
 //console.log(squireHealth)
 //console.log(heroHealth)
