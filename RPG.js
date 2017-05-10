@@ -589,11 +589,12 @@ function Switch(){
 
 function makeEverything(){
 heroCollide()
+checkCookie()
 //disgraceCollide()
 Switch()
 //getCookie(Jackswine1)
 requestAnimationFrame(makeEverything)
-console.log(Jackswine2)
+console.log(Jackswine)
 console.log(coins)
 }
 makeEverything()

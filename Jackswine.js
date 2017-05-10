@@ -258,19 +258,24 @@ function jackDead(){
     monologue3 = mkToxt("You beat Jackswine!", 0, 380, 30, "VT323", "red", 1)
     makeLink3("RPG.html", "Jackswine joins your team")
     coins = coins + 3
-    document.cookie = "Jackswine = true; path=/"
+    setCookie("Jackswine", "true")
+    //document.cookie = "Jackswine = true; path=/"
     //Jackswine2 = document.cookie
+  }
+  else{
+    setCookie("Jackswine", "false")
   }
 }
 
 
 function makeEverything3(){
 jackChoose()
+checkCookie()
 heroDead3()
 jackDead()
 requestAnimationFrame(makeEverything3)
 console.log(time3)
-console.log(Jackswine2)
+console.log(Jackswine)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }

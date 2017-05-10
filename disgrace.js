@@ -336,8 +336,16 @@ function disgraceDead(){
   }
 }
 
+makeJack(){
+  if(Jackswine == true){
+    mokeImage("images/Jackswine (1).gif", 90, 300, 50, 50, 1)
+  }
+}
+
 function makeEverything1(){
+checkCookie()
 disgraceChoose()
+makeJack()
 heroDead1()
 disgraceDead()
 requestAnimationFrame(makeEverything1)
