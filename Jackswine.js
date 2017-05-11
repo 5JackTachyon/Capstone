@@ -78,6 +78,7 @@ var time3 = 0
 var shadow = 5
 var choosed3 = false
 var chosed3 = false
+var once3 = false
 var rally = 0
 var Rally = false
 var rallyTime = 0
@@ -115,7 +116,7 @@ function heroUppercut3(){
      jackHealth = jackHealth - 1
      jackHealthBar.setAttribute("width", jackHealth*5)
     removeElement3(monologue3)
-    monologue3 = mkToxt("The Soldier(Corrupt) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
+    monologue3 = mkToxt("The Jackswine took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
     choosed3 = true
     time3 = 0
   }
@@ -123,7 +124,7 @@ function heroUppercut3(){
     jackHealth = jackHealth - 1
     jackHealthBar.setAttribute("width", jackHealth*5)
     removeElement3(monologue3)
-    monologue3 = mkToxt("The Soldier(Corrupt) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
+    monologue3 = mkToxt("The Jackswine took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
     choosed3 = false
     used3 = true
     time3 = 0

@@ -19,11 +19,7 @@
     text-decoration: none;
 }
 
-#talkybutton{
-  margin-left: -835;
-  margin-bottom: -250px;
 
-}
 
 #talkbutton{
 
@@ -41,11 +37,15 @@
 
 #footer {
 background-color:#DADADA;
-height:700px;
+height:500px;
 padding:10px;
 border-top:1px solid #ABABAB;
 position:fixed;
 left:0;
 bottom:-100;
 width:100%
+}
+
+#spoke {
+  font-size: 50px
 }

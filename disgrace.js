@@ -104,11 +104,16 @@ var Jackswine2
 var jackHealth1
 var jackHealthBarred1
 var jackHealthBar1
+var once1 = false
+var rally1 = 0
+var Rally1 = false
+var rallyTime1 = 0
 var time1 = 0
 var drunk = 5
 var choosed1 = false
 var bottle = false
 var block = false
+var juan = true
 
 //var button
 //var body
@@ -116,7 +121,6 @@ var block = false
 function timerIncrease1(){
 
     time1++
-
 
   setTimeout(timerIncrease1, 1000)
 }
@@ -133,6 +137,7 @@ function heroSlash1(){
       heroHealthBar1.setAttribute("width", heroHealth1*5)
       time1 = 0
       choosed1 = false
+
       used1 = true
     }
     if(randomNumberGenerator1(1,2) == 1){
@@ -325,7 +330,7 @@ function makeLink1(html, text) {
   aTag.innerHTML = text;
   mydiv.appendChild(aTag);
   linkAdded1 = true
-  console.log(linkAdded1)
+  //console.log(linkAdded1)
 
 }
 }
@@ -346,30 +351,6 @@ function disgraceDead(){
     makeLink1("RPG.html", "The Soldier has lost, you recieve 3 coins")
     coins = coins + 3
   }
-}
-
-function makeJack(){
-  if(Jackswine == true){
-  Jackswine2 = mokeImage("images/Jackswine (1).gif", 90, 300, 50, 50, 1)
-     jackHealth1 = 5
-     jackHealthBarred1 = mokeRect(95.5, 277.5, jackHealth1*5+5, 15, "grey", 1)
-     jackHealthBar1 = mokeRect(98, 280, jackHealth1*5, 10, "green", 1)
-   //var button = document.createElement("button");
-//button.innerHTML = "Dual Attack";
- //var body = document.getElementById("footer");
-//body.innerHTML = button;
-//Create an input type dynamically.
-       //var element = document.createElement("input");
-       //Assign different attributes to the element.
-       //element.setAttribute("type", "button");
-      // element.setAttribute("class", "btn-talk");
-       //element.setAttribute("onclick", "jackAttack1()");
-
-      // var footer = document.getElementById("spoke");
-       //Append the element in page (in span).
-       document.getElementById("testing").innerHTML = "<button class='btn-talk' onclick='jackAttack1()'>Dual Attack</button>";
- document.getElementById("croakeo").innerHTML = "<button id='croak' class='btn-talk' onclick='jackRally1()'>Rally</button>";
-}
 }
 
 function jackAttack1(){
@@ -397,7 +378,6 @@ function jackAttack1(){
     monologue1 = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
     time1 = 0
     reused1 = true
-    choosed1 = false
     block = false
   }
   else if(reused1 == false && used1 == false){
@@ -413,9 +393,104 @@ function jackAttack1(){
 }
 
 function jackRally1(){
-
+  if(bottle == true && reused1 == false && used1 == false){
+    if(randomNumberGenerator1(1,2) == 2){
+      removeElement1(monologue1)
+      monologue1 = mokeText("Jackswine is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
+      heroHealth1 = heroHealth1 - 1
+      heroHealthBar1.setAttribute("width", heroHealth1*5)
+      time1 = 0
+      reused1 = true
+    }
+    if(randomNumberGenerator1(1,2) == 1){
+      removeElement1(monologue1)
+      monologue1 = mokeToxt("Jackswine Rallied him team increasing their attack by 1!", 0, 380, 25, "VT323", "red", 1)
+      Rally1 = true
+      once1 = false
+      rally1 = rally1 + 1
+      time1 = 0
+      reused1 = true
+      console.log("whoa")
+  }
+  else if(reused1 == false && used1 == false && block == true){
+    removeElement1(monologue1)
+    monologue1 = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
+    time1 = 0
+    reused1 = true
+    block = false
+  }
+  else if(reused1 == false && used1 == false){
+  removeElement1(monologue1)
+  monologue1 = mokeToxt("Jackswine Rallied him team increasing their attack by 1!", 0, 380, 25, "VT323", "red", 1)
+  Rally1 = true
+  once1 = false
+  rally1 = rally1 + 1
+  time1 = 0
+  reused1 = true
+  console.log("whoa")
+}
+else if(Rally1 == true && once1 == false){
+  rallyTime1 = rallyTime1 + 1
+  once1 = true
+}
+else if(rallyTime == 3){
+  rally1 = rally1 - 1
+  rallyTime1 = 0
+}
+else if(rally1 == 0){
+  Rally1 = false
+ }
 }
 
+
+
+function makeJack(){
+  if(Jackswine == true && juan == true){
+  Jackswine2 = mokeImage("images/Jackswine (1).gif", 90, 300, 50, 50, 1)
+     jackHealth1 = 5
+     jackHealthBarred1 = mokeRect(95.5, 277.5, jackHealth1*5+5, 15, "grey", 1)
+     jackHealthBar1 = mokeRect(98, 280, jackHealth1*5, 10, "green", 1)
+   //var button = document.createElement("button");
+//button.innerHTML = "Dual Attack";
+var element = document.createElement("input")
+//Assign different attributes to the element.
+element.setAttribute("type", "button")
+ element.setAttribute("class", "btn-talk")
+element.setAttribute("onclick", "jackAttack1()")
+element.value = "Dual Attack";
+ var body = document.getElementById("footer")
+body.appendChild(element)
+juan = false
+
+var elements = document.createElement("input")
+//Assign different attributes to the element.
+elements.setAttribute("type", "button")
+ elements.setAttribute("class", "btn-talk")
+elements.setAttribute("onclick", "jackRally1()")
+elements.value = "Rally";
+ var bodys = document.getElementById("footer")
+bodys.appendChild(elements)
+//Create an input type dynamically.
+       //var element = document.createElement("input");
+       //Assign different attributes to the element.
+       //element.setAttribute("type", "button");
+      // element.setAttribute("class", "btn-talk");
+       //element.setAttribute("onclick", "jackAttack1()");
+
+      // var footer = document.getElementById("spoke");
+       //Append the element in page (in span).
+       //document.getElementById("testing").innerHTML = "<button class='btn-talk' onclick='jackAttack1()'>Dual Attack</button>";
+ //document.getElementById("croakeo").innerHTML = "<button id='croak' class='btn-talk' onclick='jackRally1()'>Rally</button>";
+}
+}
+
+
+
+function thatsTrue(){
+  if(Jackswine == false){
+    Jackswine = true
+  }
+}
 
 //#talkybutton{
 //  margin-bottom: -250px;
@@ -426,14 +501,22 @@ function jackRally1(){
   //margin-left: 835px;
 //}
 
+//#talkybutton{
+  //margin-left: -835;
+  //margin-bottom: -250px;
+
+//}
+
 function makeEverything1(){
 checkCookie()
+//thatsTrue()
 disgraceChoose()
 makeJack()
 heroDead1()
 disgraceDead()
 requestAnimationFrame(makeEverything1)
 console.log(time1)
+console.log(juan)
 console.log(Jackswine)
 //console.log(button)
 console.log(coins)
