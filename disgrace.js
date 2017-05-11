@@ -367,7 +367,13 @@ function makeJack(){
 }
 
 function jackAttack1(){
-
+  disgraceHealth = disgraceHealth - 1
+  disgraceHealthBar.setAttribute("width", disgraceHealth*5)
+  removeElement1(monologue1)
+  monologue1 = mokeText("The Soldier(disgraced) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
+  choosed1 = false
+  used1 = true
+  time1 = 0
 }
 
 function jackRally1(){
