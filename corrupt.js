@@ -82,6 +82,17 @@ var dark = false
 var bribed = false
 var corrupt2 = false
 //var coins = 5
+var Jackswine3
+var jackHealth2
+var jackHealthBarred2
+var jackHealthBar2
+var once2 = false
+var rally2 = 0
+var Rally2 = false
+var rallyTime2 = 0
+var juan2 = true
+var damage2
+var reused2 = false
 
 function timerIncrease2(){
 
@@ -120,6 +131,7 @@ function heroSlash2(){
     }
     if(randomNumberGenerator2(1,shadow) != 1){
       corruptHealth = corruptHealth - 2
+      corruptHealth = corruptHealth - rally2
       corruptHealthBar.setAttribute("width", corruptHealth*5)
       removeElement2(monologue2)
       monologue2 = mokeToxt("Fourthwind's attack succeeded", 0, 380, 30, "VT323", "red", 1)
@@ -130,9 +142,11 @@ function heroSlash2(){
   }
   else if(used2 == false){
     corruptHealth = corruptHealth - 2
+    corruptHealth = corruptHealth - rally2
+    damage2 = rally2 + 2
     corruptHealthBar.setAttribute("width", corruptHealth*5)
     removeElement2(monologue2)
-    monologue2 = mokeToxt("The Soldier(Corrupt) took 2 damage", 0, 380, 30, "VT323", "red", 1)
+    monologue2 = mokeToxt("The Soldier(Corrupt) took "+damage2+" damage", 0, 380, 30, "VT323", "red", 1)
     used2 = true
     choosed2 = false
     time2 = 0
@@ -155,17 +169,21 @@ function heroUppercut2(){
     }
     if(choosed2 == false && randomNumberGenerator2(1,shadow) != 1){
       corruptHealth = corruptHealth - 1
+      corruptHealth = corruptHealth - rally2
+      damage2 = rally2 + 1
       corruptHealthBar.setAttribute("width", corruptHealth*5)
       removeElement2(monologue2)
-      monologue2 = mokeToxt("The Soldier(Corrupt) took one damage and is dazed", 0, 380, 30, "VT323", "red", 1)
+      monologue2 = mokeToxt("The Soldier(Corrupt) took " +damage2+ " damage and is dazed", 0, 380, 30, "VT323", "red", 1)
       choosed2 = true
       time2 = 0
     }
     if(choosed2 == true && randomNumberGenerator2(1,shadow) != 1){
       corruptHealth = corruptHealth - 1
+      corruptHealth = corruptHealth - rally2
+      damage2 = rally2 + 1
       corruptHealthBar.setAttribute("width", corruptHealth*5)
       removeElement2(monologue2)
-      monologue2 = mokeToxt("The Soldier(Corrupt) took one damage and woke up", 0, 380, 30, "VT323", "red", 1)
+      monologue2 = mokeToxt("The Soldier(Corrupt) took "+damage2+" damage and woke up", 0, 380, 30, "VT323", "red", 1)
       choosed2 = false
       time2 = 0
       used2 = true
@@ -173,17 +191,21 @@ function heroUppercut2(){
   }
   else if(used2 == false && choosed2 == false){
     corruptHealth = corruptHealth - 1
+    corruptHealth = corruptHealth - rally2
+    damage2 = rally2 + 1
     corruptHealthBar.setAttribute("width", corruptHealth*5)
     removeElement2(monologue2)
-    monologue2 = mokeToxt("The Soldier(Corrupt) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
+    monologue2 = mokeToxt("The Soldier(Corrupt) took "+damage2+" damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
     choosed2 = true
     time2 = 0
   }
   else if(used2 == false && choosed2 == true){
     corruptHealth = corruptHealth - 1
+    corruptHealth = corruptHealth - rally2
+    damage2 = rally2 + 1
     corruptHealthBar.setAttribute("width", corruptHealth*5)
     removeElement2(monologue2)
-    monologue2 = mokeToxt("The Soldier(Corrupt) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
+    monologue2 = mokeToxt("The Soldier(Corrupt) took "+damage2+" damage and woke up!", 0, 380, 30, "VT323", "red", 1)
     choosed2 = false
     used2 = true
     time2 = 0
@@ -284,6 +306,14 @@ function heroDead2(){
   }
 }
 
+function jackDead2(){
+  if(jackHealth2 <= 0){
+    removeElement1(monologue1)
+    monologue1 = mokeToxt("Jackswine is dead", 0, 380, 30, "VT323", "red", 1)
+    reused2 = true
+  }
+}
+
 function corruptDead(){
   if(corruptHealth <= 0){
     removeElement2(monologue2)
@@ -293,12 +323,109 @@ function corruptDead(){
   }
 }
 
+function jackAttack2(){
+   if(reused2 == false && used2 == false){
+  disgraceHealth = corruptHealth - 5
+  corruptHealth = corruptHealth - rally2
+    damage2 = 5 + rally2
+  corruptHealthBar.setAttribute("width", corruptHealth*5)
+  removeElement2(monologue2)
+  monologue1 = mokeToxt("Fourthwind and Jackswine team up to do a whoping "+damage2+" damage!", 0, 380, 30, "VT323", "red", 1)
+  time2 = 0
+  reused2 = true
+  used2 = true
+  time2 = 0
+}
+ if(Rally2 == true && once2 == false){
+  rallyTime2 = rallyTime2 + 1
+  once2 = true
+}
+ if(rallyTime2 == 3){
+  rally2 = rally2 - 1
+  rallyTime2 = 0
+}
+ if(rally2 == 0){
+  Rally2 = false
+ }
+}
+
+function jackRally2(){
+ if(reused2== false && used2 == false){
+  removeElement2(monologue2)
+  monologue2 = mokeToxt("Jackswine Rallied him team increasing their attack by 1!", 0, 380, 25, "VT323", "red", 1)
+  Rally2 = true
+  once2 = false
+  rally2 = rally2 + 1
+  time2 = 0
+  reused2 = true
+  console.log("whoa")
+}
+ if(Rally2 == true && once2 == false){
+  rallyTime2 = rallyTime2 + 1
+  once2 = true
+}
+ if(rallyTime2 == 3){
+  rally2 = rally2 - 1
+  rallyTime2 = 0
+}
+ if(rally2 == 0){
+  Rally2 = false
+ }
+}
+
+
+
+function makeJack2(){
+  if(Jackswine == true && juan2 == true){
+  Jackswine3 = mokeImoge("images/Jackswine (1).gif", 90, 300, 50, 50, 1)
+     jackHealth2 = 5
+     jackHealthBarred2 = mokeRoct(95.5, 277.5, jackHealth2*5+5, 15, "grey", 1)
+     jackHealthBar2 = mokeRoct(98, 280, jackHealth2*5, 10, "green", 1)
+   //var button = document.createElement("button");
+//button.innerHTML = "Dual Attack";
+var element = document.createElement("input")
+//Assign different attributes to the element.
+element.setAttribute("type", "button")
+ element.setAttribute("class", "btn-talk")
+element.setAttribute("onclick", "jackAttack2()")
+element.value = "Dual Attack";
+ var body = document.getElementById("footer")
+body.appendChild(element)
+juan2 = false
+
+var elements = document.createElement("input")
+//Assign different attributes to the element.
+elements.setAttribute("type", "button")
+ elements.setAttribute("class", "btn-talk")
+elements.setAttribute("onclick", "jackRally2()")
+elements.value = "Rally";
+ var bodys = document.getElementById("footer")
+bodys.appendChild(elements)
+//Create an input type dynamically.
+       //var element = document.createElement("input");
+       //Assign different attributes to the element.
+       //element.setAttribute("type", "button");
+      // element.setAttribute("class", "btn-talk");
+       //element.setAttribute("onclick", "jackAttack1()");
+
+      // var footer = document.getElementById("spoke");
+       //Append the element in page (in span).
+       //document.getElementById("testing").innerHTML = "<button class='btn-talk' onclick='jackAttack1()'>Dual Attack</button>";
+ //document.getElementById("croakeo").innerHTML = "<button id='croak' class='btn-talk' onclick='jackRally1()'>Rally</button>";
+}
+}
+
+
 function makeEverything2(){
+  checkCookie()
 corruptChoose()
+makeJack2()
 heroDead2()
+jackDead2()
 corruptDead()
 requestAnimationFrame(makeEverything2)
 console.log(time2)
+console.log(Jackswine)
 //console.log(squireHealth)
 //console.log(heroHealth)
 }

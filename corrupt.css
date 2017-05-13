@@ -19,13 +19,31 @@
     text-decoration: none;
 }
 
+#jack{
+  font-size: 30px;
+  margin:-1px;
+}
+
+#fourth{
+  font-size: 30px;
+  margin: -1px;
+}
+
 #footer {
 background-color:#DADADA;
-height:200px;
+height:230px;
 padding:10px;
 border-top:1px solid #ABABAB;
 position:fixed;
 left:0;
 bottom:-100;
 width:100%
+}
+
+#spokeo {
+  font-size: 30px
+}
+
+.button {
+  margin: 10px 10px;
 }

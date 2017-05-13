@@ -112,8 +112,10 @@ var time1 = 0
 var drunk = 5
 var choosed1 = false
 var bottle = false
+var bottle1 = false
 var block = false
 var juan = true
+var damage
 
 //var button
 //var body
@@ -142,9 +144,11 @@ function heroSlash1(){
     }
     if(randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 2
+      disgraceHealth = disgraceHealth - rally1
+      damage = rally1 + 2
       disgraceHealthBar.setAttribute("width", disgraceHealth*5)
       removeElement1(monologue1)
-      monologue1 = mokeText("The Soldier(disgraced) took 2 damage", 0, 380, 30, "VT323", "red", 1)
+      monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage", 0, 380, 30, "VT323", "red", 1)
       used1 = true
       choosed1 = false
       time1 = 0
@@ -160,9 +164,11 @@ function heroSlash1(){
   }
   else if(used1 == false){
     disgraceHealth = disgraceHealth - 2
+    disgraceHealth = disgraceHealth - rally1
+    damage = rally1 + 2
     disgraceHealthBar.setAttribute("width", disgraceHealth*5)
     removeElement1(monologue1)
-    monologue1 = mokeText("The Soldier(disgraced) took 2 damage", 0, 380, 30, "VT323", "red", 1)
+    monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage", 0, 380, 30, "VT323", "red", 1)
     used1 = true
     choosed1 = false
     time1 = 0
@@ -186,18 +192,22 @@ function heroUppercut1(){
     }
     if(choosed1 == false && randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 1
+      disgraceHealth = disgraceHealth - rally1
+      damage = rally1 + 1
       disgraceHealthBar.setAttribute("width", disgraceHealth*5)
       removeElement1(monologue1)
-      monologue1 = mokeText("The Soldier(disgraced) took 1 damage and is dazed", 0, 380, 30, "VT323", "red", 1)
+      monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage and is dazed", 0, 380, 30, "VT323", "red", 1)
       time1 = 0
       choosed1 = true
 
     }
     if(choosed1 == true && randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 1
+      disgraceHealth = disgraceHealth - rally1
+      damage = 1 + rally1
       disgraceHealthBar.setAttribute("width", disgraceHealth*5)
       removeElement1(monologue1)
-      monologue1 = mokeText("The Soldier(disgraced) took 1 damage and is dazed", 0, 380, 30, "VT323", "red", 1)
+      monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage and is dazed", 0, 380, 30, "VT323", "red", 1)
       choosed1 = false
       time1 = 0
       used1 = true
@@ -209,22 +219,25 @@ function heroUppercut1(){
     time1 = 0
     used1 = true
     choosed1 = false
-    choosed1 = false
     block = false
   }
   else if(used1 == false && choosed1 == false){
     disgraceHealth = disgraceHealth - 1
+    disgraceHealth = disgraceHealth - rally1
+    damage = 1 + rally1
     disgraceHealthBar.setAttribute("width", disgraceHealth*5)
     removeElement1(monologue1)
-    monologue1 = mokeText("The Soldier(disgraced) took 1 damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
+    monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage and is dazed and cannot attack!", 0, 380, 30, "VT323", "red", 1)
     choosed1 = true
     time1 = 0
   }
   else if(used1 == false && choosed1 == true){
     disgraceHealth = disgraceHealth - 1
+    disgraceHealth = disgraceHealth - rally1
+    damage = 1 + rally1
     disgraceHealthBar.setAttribute("width", disgraceHealth*5)
     removeElement1(monologue1)
-    monologue1 = mokeText("The Soldier(disgraced) took 1 damage and woke up!", 0, 380, 30, "VT323", "red", 1)
+    monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage and woke up!", 0, 380, 30, "VT323", "red", 1)
     choosed1 = false
     used1 = true
     time1 = 0
@@ -265,38 +278,110 @@ function disgraceChoose(){
     //time = 0
     drunk = drunk - 1
     //console.log("yo")
-    disgracedAttack()
+    if(randomNumberGenerator1(1,drunk) == 1 && time1 > 5){
+      removeElement1(monologue1)
+      monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
+      time1 = 0
+      used1 = false
+    }
+    if(randomNumberGenerator1(1,drunk) != 1 && time1 > 5){
+      heroHealth1 = heroHealth1 - 3
+        heroHealthBar1.setAttribute("width", heroHealth1*5)
+      removeElement1(monologue1)
+      monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow and it does 3 damage!!", 0, 380, 30, "VT323", "red", 1)
+      time1 = 0
+      used1 = false
+    }
+    used1 = false
     time1 = 0
     console.log("yo")
   }
 }
 if(used1 == true && Jackswine == true && time1 > 5){
-  if(randomNumberGenerator1(1,3) == 1 && time1 > 5 && used1 == true){
+  if(randomNumberGenerator1(1,5) == 1 && time1 > 5 && reused1 == true && used1 == true){
   heroHealth1 = heroHealth1 - 1
     heroHealthBar1.setAttribute("width", heroHealth1*5)
   removeElement1(monologue1)
   monologue1 = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Fourthwind is confused", 0, 380, 25, "VT323", "red", 1)
   time1 = 0
   used1 = false
+  reused1 = false
   bottle = true
   console.log("whoa")
 }
-if(randomNumberGenerator1(1,3) == 2 && time1 > 5 && used1 == true){
+if(randomNumberGenerator1(1,5) == 2 && time1 > 5 && reused1 == true && used1 == true){
+jackHealth1 = jackHealth1 - 1
+  jackHealthBar1.setAttribute("width", jackHealth1*5)
+removeElement1(monologue1)
+monologue1 = mokeText("Soldier(disgraced) uses Bottle Throw, doing 1 damage, Jackswine is confused", 0, 380, 25, "VT323", "red", 1)
+time1 = 0
+used1 = false
+reused1 = false
+bottle1 = true
+console.log("whoa")
+}
+if(randomNumberGenerator1(1,5) == 3 && time1 > 5 && reused1 == true && used1 == true){
   //squireCopy()
   removeElement1(monologue1)
   monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)
   //time = 0
   drunk = drunk - 1
   //console.log("yo")
-  disgracedAttack()
+  if(randomNumberGenerator1(1,drunk) == 1 && time1 > 5){
+    removeElement1(monologue1)
+    monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
+    time1 = 0
+    reused1 = false
+    used = false
+  }
+  if(randomNumberGenerator1(1,drunk) != 1 && time1 > 5){
+    heroHealth1 = heroHealth1 - 3
+      heroHealthBar1.setAttribute("width", heroHealth1*5)
+    removeElement1(monologue1)
+    monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow and it does 3 damage to Fourthwind!!", 0, 380, 25, "VT323", "red", 1)
+    time1 = 0
+    reused1 = false
+    used = false
+  }
+  reused1 = false
+  used1 = false
   time1 = 0
   console.log("yo")
 }
-if(randomNumberGenerator1(1,3) == 3 && time1 > 5 && used1 == true){
+if(randomNumberGenerator1(1,5) == 4 && time1 > 5 && reused1 == true && used1 == true){
+  //squireCopy()
+  removeElement1(monologue1)
+  monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow", 0, 380, 30, "VT323", "red", 1)
+  //time = 0
+  drunk = drunk - 1
+  //console.log("yo")
+  if(randomNumberGenerator1(1,drunk) == 1 && time1 > 5){
+    removeElement1(monologue1)
+    monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
+    time1 = 0
+    reused1 = false
+    used = false
+  }
+  if(randomNumberGenerator1(1,drunk) != 1 && time1 > 5){
+    jackHealth1 = jackHealth1 - 3
+      heroHealthBar1.setAttribute("width", heroHealth1*5)
+    removeElement1(monologue1)
+    monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow and it does 3 damage to Jackswine!!", 0, 380, 25, "VT323", "red", 1)
+    time1 = 0
+    reused1 = false
+    used = false
+  }
+  reused1 = false
+  used1 = false
+  time1 = 0
+  console.log("yo")
+}
+if(randomNumberGenerator1(1,5) == 5 && time1 > 5 && reused1 == true && used1 == true){
 removeElement1(monologue1)
 monologue1 = mokeText("Soldier(disgraced) uses Block", 0, 380, 25, "VT323", "red", 1)
 time1 = 0
 used1 = false
+reused1 = false
 block = true
 console.log("whoa")
 }
@@ -311,6 +396,7 @@ function disgracedAttack(){
     monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
     time1 = 0
     used1 = false
+    reused = false
   }
   if(randomNumberGenerator1(1,drunk) != 1 && time1 > 5){
     heroHealth1 = heroHealth1 - 3
@@ -319,6 +405,7 @@ function disgracedAttack(){
     monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow and it does 3 damage!!", 0, 380, 30, "VT323", "red", 1)
     time1 = 0
     used1 = false
+    reused = false
   }
 }
 
@@ -341,6 +428,15 @@ function heroDead1(){
   if(heroHealth1 <= 0){
     removeElement1(monologue1)
     monologue1 = mokeText("The Hero is dead", 0, 380, 30, "VT323", "red", 1)
+    used1 = true
+  }
+}
+
+function jackDead1(){
+  if(jackHealth1 <= 0){
+    removeElement1(monologue1)
+    monologue1 = mokeText("Jackswine is dead", 0, 380, 30, "VT323", "red", 1)
+    reused1 = true
   }
 }
 
@@ -354,20 +450,22 @@ function disgraceDead(){
 }
 
 function jackAttack1(){
-  if(bottle == true && reused1 == false && used1 == false){
+  if(bottle1 == true && reused1 == false && used1 == false){
     if(randomNumberGenerator1(1,2) == 2){
       removeElement1(monologue1)
       monologue1 = mokeText("Jackswine is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
-      heroHealth1 = heroHealth1 - 1
-      heroHealthBar1.setAttribute("width", heroHealth1*5)
+      jackHealth1 = jackHealth1 - 1
+      jackHealthBar1.setAttribute("width", jackHealth1*5)
       time1 = 0
       reused1 = true
     }
     if(randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 5
+      disgraceHealth = disgraceHealth - rally1
+        damage = 5 + rally1
       disgraceHealthBar.setAttribute("width", disgraceHealth*5)
       removeElement1(monologue1)
-      monologue1 = mokeText("Fourthwind and Jackswine team up to do a whoping 5 damage!", 0, 380, 30, "VT323", "red", 1)
+      monologue1 = mokeText("Fourthwind and Jackswine team up to do a whoping " + damage + " damage!", 0, 380, 30, "VT323", "red", 1)
       time1 = 0
       reused1 = true
       used1 = true
@@ -382,14 +480,27 @@ function jackAttack1(){
   }
   else if(reused1 == false && used1 == false){
   disgraceHealth = disgraceHealth - 5
+  disgraceHealth = disgraceHealth - rally1
+    damage = 5 + rally1
   disgraceHealthBar.setAttribute("width", disgraceHealth*5)
   removeElement1(monologue1)
-  monologue1 = mokeText("Fourthwind and Jackswine team up to do a whoping 5 damage!", 0, 380, 30, "VT323", "red", 1)
+  monologue1 = mokeText("Fourthwind and Jackswine team up to do a whoping "+damage+" damage!", 0, 380, 30, "VT323", "red", 1)
   time1 = 0
   reused1 = true
   used1 = true
   time1 = 0
 }
+ if(Rally1 == true && once1 == false){
+  rallyTime1 = rallyTime1 + 1
+  once1 = true
+}
+ if(rallyTime1 == 3){
+  rally1 = rally1 - 1
+  rallyTime1 = 0
+}
+ if(rally1 == 0){
+  Rally1 = false
+ }
 }
 
 function jackRally1(){
@@ -397,14 +508,14 @@ function jackRally1(){
     if(randomNumberGenerator1(1,2) == 2){
       removeElement1(monologue1)
       monologue1 = mokeText("Jackswine is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
-      heroHealth1 = heroHealth1 - 1
-      heroHealthBar1.setAttribute("width", heroHealth1*5)
+      jackHealth1 = jackHealth1 - 1
+      jackHealthBar1.setAttribute("width", jackHealth1*5)
       time1 = 0
       reused1 = true
     }
     if(randomNumberGenerator1(1,2) == 1){
       removeElement1(monologue1)
-      monologue1 = mokeToxt("Jackswine Rallied him team increasing their attack by 1!", 0, 380, 25, "VT323", "red", 1)
+      monologue1 = mokeText("Jackswine Rallied him team increasing their attack by 1!", 0, 380, 25, "VT323", "red", 1)
       Rally1 = true
       once1 = false
       rally1 = rally1 + 1
@@ -412,6 +523,7 @@ function jackRally1(){
       reused1 = true
       console.log("whoa")
   }
+}
   else if(reused1 == false && used1 == false && block == true){
     removeElement1(monologue1)
     monologue1 = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
@@ -421,7 +533,7 @@ function jackRally1(){
   }
   else if(reused1 == false && used1 == false){
   removeElement1(monologue1)
-  monologue1 = mokeToxt("Jackswine Rallied him team increasing their attack by 1!", 0, 380, 25, "VT323", "red", 1)
+  monologue1 = mokeText("Jackswine Rallied him team increasing their attack by 1!", 0, 380, 25, "VT323", "red", 1)
   Rally1 = true
   once1 = false
   rally1 = rally1 + 1
@@ -429,15 +541,15 @@ function jackRally1(){
   reused1 = true
   console.log("whoa")
 }
-else if(Rally1 == true && once1 == false){
+ if(Rally1 == true && once1 == false){
   rallyTime1 = rallyTime1 + 1
   once1 = true
 }
-else if(rallyTime == 3){
+ if(rallyTime1 == 3){
   rally1 = rally1 - 1
   rallyTime1 = 0
 }
-else if(rally1 == 0){
+ if(rally1 == 0){
   Rally1 = false
  }
 }
@@ -513,6 +625,7 @@ checkCookie()
 disgraceChoose()
 makeJack()
 heroDead1()
+jackDead1()
 disgraceDead()
 requestAnimationFrame(makeEverything1)
 console.log(time1)
