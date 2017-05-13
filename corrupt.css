@@ -11,7 +11,19 @@
     text-decoration: none;
     width: 18%;
     border: 0px;
-    margin: 0px;
+    margin: 5px;
+}
+
+#talkButton{
+  margin: 0px
+}
+
+#talkyButton{
+  margin: 0px
+}
+
+#talkieButton{
+  margin: 0px
 }
 
 .btn-talk:hover {
@@ -21,12 +33,12 @@
 
 #jack{
   font-size: 30px;
-  margin:-1px;
+  margin:-5px;
 }
 
 #fourth{
   font-size: 30px;
-  margin: -1px;
+  margin: -5px;
 }
 
 #footer {

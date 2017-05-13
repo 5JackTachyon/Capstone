@@ -588,10 +588,11 @@ function Switch(){
 
 
 function makeEverything(){
-heroCollide()
 checkCookie()
+checkHeroCookie()
 //disgraceCollide()
 Switch()
+heroCollide()
 //getCookie(Jackswine1)
 requestAnimationFrame(makeEverything)
 console.log(Jackswine)

@@ -115,7 +115,11 @@ var bottle = false
 var bottle1 = false
 var block = false
 var juan = true
+var juan1 = true
 var damage
+var twice1 = 0
+var fight2 = 0
+var juan0 = true
 
 //var button
 //var body
@@ -139,8 +143,17 @@ function heroSlash1(){
       heroHealthBar1.setAttribute("width", heroHealth1*5)
       time1 = 0
       choosed1 = false
-
-      used1 = true
+      if(chosen == true){
+          used1 = true
+          twice1++
+          chosen = false
+      }
+      if(twice1 == 1){
+        chosen = true
+      }
+      if(twice1 == 0){
+        used1 = true
+      }
     }
     if(randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 2
@@ -149,18 +162,38 @@ function heroSlash1(){
       disgraceHealthBar.setAttribute("width", disgraceHealth*5)
       removeElement1(monologue1)
       monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage", 0, 380, 30, "VT323", "red", 1)
-      used1 = true
       choosed1 = false
       time1 = 0
+      if(chosen == true){
+          used1 = true
+          twice1++
+          chosen = false
+      }
+      if(twice1 == 1){
+        chosen = true
+      }
+      if(twice1 == 0){
+        used1 = true
+      }
     }
   }
   else if(block == true && used1 == false){
     removeElement1(monologue1)
     monologue1 = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
     time1 = 0
-    used1 = true
     choosed1 = false
     block = false
+    if(chosen == true){
+        used1 = true
+        twice1++
+        chosen = false
+    }
+    if(twice1 == 1){
+      chosen = true
+    }
+    if(twice1 == 0){
+      used1 = true
+    }
   }
   else if(used1 == false){
     disgraceHealth = disgraceHealth - 2
@@ -169,9 +202,19 @@ function heroSlash1(){
     disgraceHealthBar.setAttribute("width", disgraceHealth*5)
     removeElement1(monologue1)
     monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage", 0, 380, 30, "VT323", "red", 1)
-    used1 = true
     choosed1 = false
     time1 = 0
+    if(chosen == true){
+        used1 = true
+        twice1++
+        chosen = false
+    }
+    if(twice1 == 1){
+      chosen = true
+    }
+    if(twice1 == 0){
+      used1 = true
+    }
   }
   else{
     removeElement1(monologue1)
@@ -188,7 +231,17 @@ function heroUppercut1(){
       heroHealth1 = heroHealth1 - 1
       heroHealthBar1.setAttribute("width", heroHealth1*5)
       time1 = 0
-      used1 = true
+      if(chosen == true){
+          used1 = true
+          twice1++
+          chosen = false
+      }
+      if(twice1 == 1){
+        chosen = true
+      }
+      if(twice1 == 0){
+        used1 = true
+      }
     }
     if(choosed1 == false && randomNumberGenerator1(1,2) == 1){
       disgraceHealth = disgraceHealth - 1
@@ -210,16 +263,34 @@ function heroUppercut1(){
       monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage and is dazed", 0, 380, 30, "VT323", "red", 1)
       choosed1 = false
       time1 = 0
-      used1 = true
+      if(chosen == true){
+          used1 = true
+          twice1++
+          chosen = false
+      }
+      if(twice1 == 1){
+        chosen = true
+      }
+      if(twice1 == 0){
+        used1 = true
+      }
     }
   }
   else if(block == true && used1 == false){
     removeElement1(monologue1)
     monologue1 = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
     time1 = 0
-    used1 = true
-    choosed1 = false
-    block = false
+    if(chosen == true){
+        used1 = true
+        twice1++
+        chosen = false
+    }
+    if(twice1 == 1){
+      chosen = true
+    }
+    if(twice1 == 0){
+      used1 = true
+    }
   }
   else if(used1 == false && choosed1 == false){
     disgraceHealth = disgraceHealth - 1
@@ -239,8 +310,17 @@ function heroUppercut1(){
     removeElement1(monologue1)
     monologue1 = mokeText("The Soldier(disgraced) took " + damage + " damage and woke up!", 0, 380, 30, "VT323", "red", 1)
     choosed1 = false
-    used1 = true
-    time1 = 0
+    if(chosen == true){
+        used1 = true
+        twice1++
+        chosen = false
+    }
+    if(twice1 == 1){
+      chosen = true
+    }
+    if(twice1 == 0){
+      used1 = true
+    }
   }
   else{
     removeElement1(monologue1)
@@ -270,6 +350,9 @@ function disgraceChoose(){
     used1 = false
     bottle = true
     console.log("whoa")
+    if(twice1 != 0){
+      twice1--
+    }
   }
   if(randomNumberGenerator1(1,2) == 2 && time1 > 5 && used1 == true){
     //squireCopy()
@@ -283,6 +366,9 @@ function disgraceChoose(){
       monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
       time1 = 0
       used1 = false
+      if(twice1 != 0){
+        twice1--
+      }
     }
     if(randomNumberGenerator1(1,drunk) != 1 && time1 > 5){
       heroHealth1 = heroHealth1 - 3
@@ -295,6 +381,9 @@ function disgraceChoose(){
     used1 = false
     time1 = 0
     console.log("yo")
+    if(twice1 != 0){
+      twice1--
+    }
   }
 }
 if(used1 == true && Jackswine == true && time1 > 5){
@@ -308,6 +397,9 @@ if(used1 == true && Jackswine == true && time1 > 5){
   reused1 = false
   bottle = true
   console.log("whoa")
+  if(twice1 != 0){
+    twice1--
+  }
 }
 if(randomNumberGenerator1(1,5) == 2 && time1 > 5 && reused1 == true && used1 == true){
 jackHealth1 = jackHealth1 - 1
@@ -319,6 +411,9 @@ used1 = false
 reused1 = false
 bottle1 = true
 console.log("whoa")
+if(twice1 != 0){
+  twice1--
+}
 }
 if(randomNumberGenerator1(1,5) == 3 && time1 > 5 && reused1 == true && used1 == true){
   //squireCopy()
@@ -332,7 +427,8 @@ if(randomNumberGenerator1(1,5) == 3 && time1 > 5 && reused1 == true && used1 == 
     monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow but the attack failed", 0, 380, 30, "VT323", "red", 1)
     time1 = 0
     reused1 = false
-    used = false
+    used1 = false
+
   }
   if(randomNumberGenerator1(1,drunk) != 1 && time1 > 5){
     heroHealth1 = heroHealth1 - 3
@@ -341,12 +437,15 @@ if(randomNumberGenerator1(1,5) == 3 && time1 > 5 && reused1 == true && used1 == 
     monologue1 = mokeText("Soldier(disgraced) uses Staggering Blow and it does 3 damage to Fourthwind!!", 0, 380, 25, "VT323", "red", 1)
     time1 = 0
     reused1 = false
-    used = false
+    used1 = false
   }
   reused1 = false
   used1 = false
   time1 = 0
   console.log("yo")
+  if(twice1 != 0){
+    twice1--
+  }
 }
 if(randomNumberGenerator1(1,5) == 4 && time1 > 5 && reused1 == true && used1 == true){
   //squireCopy()
@@ -361,6 +460,9 @@ if(randomNumberGenerator1(1,5) == 4 && time1 > 5 && reused1 == true && used1 == 
     time1 = 0
     reused1 = false
     used = false
+    if(twice1 != 0){
+      twice1--
+    }
   }
   if(randomNumberGenerator1(1,drunk) != 1 && time1 > 5){
     jackHealth1 = jackHealth1 - 3
@@ -375,6 +477,9 @@ if(randomNumberGenerator1(1,5) == 4 && time1 > 5 && reused1 == true && used1 == 
   used1 = false
   time1 = 0
   console.log("yo")
+  if(twice1 != 0){
+    twice1--
+  }
 }
 if(randomNumberGenerator1(1,5) == 5 && time1 > 5 && reused1 == true && used1 == true){
 removeElement1(monologue1)
@@ -384,6 +489,9 @@ used1 = false
 reused1 = false
 block = true
 console.log("whoa")
+if(twice1 != 0){
+  twice1--
+}
 }
 }
 }
@@ -504,7 +612,7 @@ function jackAttack1(){
 }
 
 function jackRally1(){
-  if(bottle == true && reused1 == false && used1 == false){
+  if(bottle == true && reused1 == false){
     if(randomNumberGenerator1(1,2) == 2){
       removeElement1(monologue1)
       monologue1 = mokeText("Jackswine is confused and hurts himself", 0, 380, 30, "VT323", "red", 1)
@@ -524,14 +632,14 @@ function jackRally1(){
       console.log("whoa")
   }
 }
-  else if(reused1 == false && used1 == false && block == true){
+  else if(reused1 == false && block == true){
     removeElement1(monologue1)
     monologue1 = mokeText("The attack was blocked!", 0, 380, 30, "VT323", "red", 1)
     time1 = 0
     reused1 = true
     block = false
   }
-  else if(reused1 == false && used1 == false){
+  else if(reused1 == false){
   removeElement1(monologue1)
   monologue1 = mokeText("Jackswine Rallied him team increasing their attack by 1!", 0, 380, 25, "VT323", "red", 1)
   Rally1 = true
@@ -554,6 +662,36 @@ function jackRally1(){
  }
 }
 
+function heroPower(){
+  if(used1 == false && juan0 == true){
+    //squireCopy()
+    removeElement2(monologue2)
+    monologue2 = mokeToxt("Fourthwind uses Bring it on! giving him x2 attack and the Soldier gained +1 attack!", 0, 380, 23, "VT323", "red", 1)
+    //time = 0
+    //console.log("yo")
+    twice1 = 1
+    fight2 = 1
+    juan0 = false
+    time1 = 0
+    console.log("yo")
+  }
+}
+
+function makeHeroPower(){
+  if(heropower == true && juan1 == true){
+    //var button = document.createElement("button");
+ //button.innerHTML = "Dual Attack";
+ var element = document.createElement("input")
+ //Assign different attributes to the element.
+ element.setAttribute("type", "button")
+  element.setAttribute("class", "btn-talk")
+ element.setAttribute("onclick", "heroPower()")
+ element.value = "Bring In On!";
+  var body = document.getElementById("footer")
+ body.appendChild(element)
+    juan1 = false
+  }
+}
 
 
 function makeJack(){
@@ -621,16 +759,18 @@ function thatsTrue(){
 
 function makeEverything1(){
 checkCookie()
+checkHeroCookie()
 //thatsTrue()
 disgraceChoose()
 makeJack()
+makeHeroPower()
 heroDead1()
 jackDead1()
 disgraceDead()
 requestAnimationFrame(makeEverything1)
 console.log(time1)
-console.log(juan)
-console.log(Jackswine)
+//console.log(juan)
+console.log(heropower)
 //console.log(button)
 console.log(coins)
 //console.log(squireHealth)
