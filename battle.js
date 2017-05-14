@@ -54,8 +54,8 @@ return Math.floor(Math.random()*(max-min+1)+min);
 }
 
 var fortress1 = makeImoge("images/fortress.png", 200, 0, 350, 350, 1)
-var heros = makeImoge("images/hero.gif", 150, 300, 50, 50, 1)
-var knight = makeImoge("images/Knight (2).gif", 550, 300, 50, 50, 1)
+var heros = makeImoge("images/Fourth.gif", 150, 300, 50, 50, 1)
+var knight = makeImoge("images/Squire.gif", 545, 300, 55, 50, 1)
 var speechs = makeRoct( 0, 350, 800, 50, "grey", 1)
 var monologues = makeToxt("Press the slash button to attack", 0, 380, 30, "VT323", "red", 1)
 var used = false

@@ -419,12 +419,12 @@ var Cottage = makeImg("images/hausecottage.PNG", 500, 0, 150, 150, 1)
 var Cottage = makeImg("images/hausecottage.PNG", 75, 200, 150, 150, 1)
 var rect = mkRct(0, 0, 900, 900, "black", .5)
 var barn = mkImage("images/Barn.png", 500, 200, 200, 200, 1)
-var Hero = makeImage("images/hero.gif", 375, 200, 50, 50, 1)
-var Disgrace = makeImage("images/Disgraced.gif", 100, 200, 50, 50, 1)
-var Corrupt = makeImage("images/Corrupt (1).gif", 600, 200, 50, 50, 1)
-var Fallen = makeImage("images/Fallen.gif", 400, 300, 50, 50, 1)
-var Fallen = makeImage("images/Fallen.gif", 400, 300, 50, 50, 1)
-var Jackswine1 = mkImage("images/Jackswine (1).gif", 600, 100, 50, 50, 1)
+var Hero = makeImage("images/Fourth.gif", 375, 200, 55, 50, 1)
+var Disgrace = makeImage("images/DISGRACE (2).gif", 100, 200, 60, 50, 1)
+var Corrupt = makeImage("images/Corrupt (2).gif", 600, 200, 50, 50, 1)
+var Fallen = makeImage("images/Fallen (1).gif", 400, 300, 60, 60, 1)
+//var Fallen = makeImage("images/Fallen.gif", 400, 300, 50, 50, 1)
+var Jackswine1 = mkImage("images/Jackswine (2).gif", 600, 100, 50, 50, 1)
 //var speech = makeRect( 0, 350, 800, 50, "grey", 1)
 //var monologue = makeText("", 0, 380, 30, "VT323", "red", 1)
 var once = true
@@ -531,56 +531,56 @@ function Switch(){
     var why = getY(Hero)
     var ex = getX(Hero)
     removeElement(Hero)
-    Hero = makeImg("images/hero.gif", ex, 0, 50, 50, 1)
+    Hero = makeImg("images/Fourth.gif", ex, 0, 50, 50, 1)
     convas = true
   }
   if(getY(Hero) < 0 && convas == true && kahnvas == false){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = makeImage("images/hero.gif", ex, 350, 50, 50, 1)
+    Hero = makeImage("images/Fourth.gif", ex, 350, 50, 50, 1)
     convas = false
   }
   if(getX(Hero) > 750 && convas == false && kahnvas == false){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = mkImg("images/hero.gif", 0, why, 50, 50, 1)
+    Hero = mkImg("images/Fourth.gif", 0, why, 50, 50, 1)
     kahnvas = true
   }
   if(getX(Hero) < 0 && convas == false && kahnvas == true){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = makeImage("images/hero.gif", 750, why, 50, 50, 1)
+    Hero = makeImage("images/Fourth.gif", 750, why, 50, 50, 1)
     kahnvas = false
   }
   if(getX(Hero) > 750 && convas == true && kahnvas == false){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = mkImage("images/hero.gif", 0, why, 50, 50, 1)
+    Hero = mkImage("images/Fourth.gif", 0, why, 50, 50, 1)
     kahnvas = true
   }
   if(getX(Hero) < 0 && convas == true && kahnvas == true){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = makeImg("images/hero.gif", 750, why, 50, 50, 1)
+    Hero = makeImg("images/Fourth.gif", 750, why, 50, 50, 1)
     kahnvas = false
   }
   if(getY(Hero) < 0 && convas == true && kahnvas == true){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = mkImg("images/hero.gif", ex, 290, 50, 50, 1)
+    Hero = mkImg("images/Fourth.gif", ex, 290, 50, 50, 1)
     convas = false
   }
   if(getY(Hero) > 300 && convas == false && kahnvas == true){
     why = getY(Hero)
     ex = getX(Hero)
     removeElement(Hero)
-    Hero = mkImage("images/hero.gif", ex, 0, 50, 50, 1)
+    Hero = mkImage("images/Fourth.gif", ex, 0, 50, 50, 1)
     convas = true
   }
 }

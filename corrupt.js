@@ -62,9 +62,9 @@ var goldcoins2 = mokeImoge("images/goldcoins.gif", 0, 8.8, 240, 600, 1)
 var goldcoins1 = mokeImoge("images/moneymoney.png", 0, -15, 240, 600, 1)
 var goldcoins2 = mokeImoge("images/goldcoins.gif", 500, 8.8, 240, 600, 1)
 var goldcoins1 = mokeImoge("images/moneymoney.png", 500, -15, 240, 600, 1)
-var hero2 = mokeImoge("images/hero.gif", 150, 300, 50, 50, 1)
+var hero2 = mokeImoge("images/Fourth.gif", 145, 300, 55, 50, 1)
 
-var corrupt1 = mokeImoge("images/Corrupt (1).gif", 550, 300, 50, 50, 1)
+var corrupt1 = mokeImoge("images/Corrupt (2).gif", 550, 300, 50, 50, 1)
 var speech2 = mokeRoct( 0, 350, 800, 50, "grey", 1)
 var monologue2 = mokeToxt("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
 var used2 = 0
@@ -554,7 +554,7 @@ else if(reused2 == 0 && dark == false){
 
 function makeJack2(){
   if(Jackswine == true && juan2 == true){
-  Jackswine3 = mokeImoge("images/Jackswine (1).gif", 90, 300, 50, 50, 1)
+  Jackswine3 = mokeImoge("images/Jackswine (2).gif", 90, 300, 55, 55, 1)
      jackHealth2 = 5
      jackHealthBarred2 = mokeRoct(95.5, 277.5, jackHealth2*5+5, 15, "grey", 1)
      jackHealthBar2 = mokeRoct(98, 280, jackHealth2*5, 10, "green", 1)

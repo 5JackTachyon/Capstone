@@ -87,8 +87,8 @@ makeCobble1()
 
 
 //var bubble = mokeImage("images/bubble.png", 200, 200, 50, 50, 1)
-var hero1 = mokeImage("images/hero.gif", 150, 300, 50, 50, 1)
-var disgrace = mokeImage("images/Disgraced.gif", 550, 300, 50, 50, 1)
+var hero1 = mokeImage("images/Fourth.gif", 145, 300, 55, 50, 1)
+var disgrace = mokeImage("images/DISGRACE (2).gif", 545, 300, 60, 50, 1)
 var speech1 = mokeRect( 0, 350, 800, 50, "grey", 1)
 var monologue1 = mokeText("Press the slash/uppercut button to attack", 0, 380, 30, "VT323", "red", 1)
 var used1 = false
@@ -709,7 +709,7 @@ function makeHeroPower(){
 
 function makeJack(){
   if(Jackswine == true && juan == true){
-  Jackswine2 = mokeImage("images/Jackswine (1).gif", 90, 300, 50, 50, 1)
+  Jackswine2 = mokeImage("images/Jackswine (2).gif", 90, 300, 55, 55, 1)
      jackHealth1 = 5
      jackHealthBarred1 = mokeRect(95.5, 277.5, jackHealth1*5+5, 15, "grey", 1)
      jackHealthBar1 = mokeRect(98, 280, jackHealth1*5, 10, "green", 1)
